@@ -1,4 +1,4 @@
-package org.faastener.core.models;
+package org.faastener.core.model;
 
 import java.util.List;
 
@@ -12,5 +12,5 @@ public class ClassificationFramework {
     public String name;
     public String description;
     public TechnologyType technologyType;
-    public List<ViewCombination> viewCombinations;
+    public List<FrameworkView> frameworkViews;
 }

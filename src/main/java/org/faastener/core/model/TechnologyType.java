@@ -1,4 +1,4 @@
-package org.faastener.core.models;
+package org.faastener.core.model;
 
 public enum TechnologyType {
     FAAS, OBJECTSTORAGE, MESSAGEQUEUE

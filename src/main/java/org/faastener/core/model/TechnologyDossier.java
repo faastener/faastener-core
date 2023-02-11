@@ -1,4 +1,4 @@
-package org.faastener.core.models;
+package org.faastener.core.model;
 
 import java.util.Date;
 import java.util.List;
