@@ -5,15 +5,23 @@ import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "frameworks")
 public class ClassificationFramework {
     @Id
     public String id;
+    @Field("name")
     public String name;
-    public String description;
+    @Field("technologyType")
     public TechnologyType technologyType;
+    @Field("description")
+    public String description;
+    @Field("frameworkViews")
     public List<FrameworkView> frameworkViews;
+
+    public ClassificationFramework() {
+    }
 
     public ClassificationFramework(String id, String name, String description, TechnologyType technologyType, List<FrameworkView> frameworkViews) {
         this.id = id;
