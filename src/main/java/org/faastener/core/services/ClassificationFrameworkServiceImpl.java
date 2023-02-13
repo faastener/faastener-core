@@ -4,23 +4,25 @@ import java.util.List;
 import java.util.Optional;
 
 import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.repositories.ClassificationFrameworkRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ClassificationFrameworkServiceImpl implements ClassificationFrameworkService {
-    @Override
-    public Optional<ClassificationFramework> findById(String id) {
-        return Optional.empty();
+    private final ClassificationFrameworkRepository repository;
+
+    public ClassificationFrameworkServiceImpl(ClassificationFrameworkRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Optional<ClassificationFramework> findByProductId(Integer productId) {
-        return Optional.empty();
+    public Optional<ClassificationFramework> findById(String id) {
+        return repository.findById(id);
     }
 
     @Override
     public List<ClassificationFramework> findAll() {
-        return null;
+        return repository.findAll();
     }
 
     @Override

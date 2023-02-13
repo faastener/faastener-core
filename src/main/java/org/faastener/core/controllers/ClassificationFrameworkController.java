@@ -2,7 +2,9 @@ package org.faastener.core.controllers;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
+import org.faastener.core.model.ClassificationFramework;
 import org.faastener.core.services.ClassificationFrameworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/frameworks")
 public class ClassificationFrameworkController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassificationFrameworkController.class);
-
     private final ClassificationFrameworkService service;
 
     public ClassificationFrameworkController(ClassificationFrameworkService service) {
@@ -25,14 +26,25 @@ public class ClassificationFrameworkController {
     }
 
     /**
+     * Returns all available classification frameworks.
+     *
+     * @return The list of classification frameworks.
+     */
+    @GetMapping
+    public List<ClassificationFramework> getFrameworks() {
+        return service.findAll();
+    }
+
+    /**
      * Returns the classification framework with the specified ID.
      *
-     * @param id The ID of the classification framework to return.
+     * @param frameworkId The ID of the classification framework to return.
      * @return The classification framework with the specified ID, or 404 Not Found.
      */
-    @GetMapping("/api/v1/frameworks/{id}")
-    public ResponseEntity<?> getReview(@PathVariable String id) {
-        return service.findById(id)
+    @GetMapping
+    @RequestMapping("{frameworkId}")
+    public ResponseEntity<?> getFramework(@PathVariable String frameworkId) {
+        return service.findById(frameworkId)
                 .map(framework -> {
                     try {
                         return ResponseEntity

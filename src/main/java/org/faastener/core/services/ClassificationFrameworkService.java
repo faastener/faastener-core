@@ -15,14 +15,6 @@ public interface ClassificationFrameworkService {
     Optional<ClassificationFramework> findById(String id);
 
     /**
-     * Returns the classification framework with the specified product ID.
-     *
-     * @param productId The product ID for which to return the classification framework.
-     * @return The classification framework for the specified product ID.
-     */
-    Optional<ClassificationFramework> findByProductId(Integer productId);
-
-    /**
      * Returns all classification frameworks in the database.
      *
      * @return All classification frameworks in the database.
