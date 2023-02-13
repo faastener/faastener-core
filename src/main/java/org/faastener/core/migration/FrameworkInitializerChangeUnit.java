@@ -38,8 +38,6 @@ public class FrameworkInitializerChangeUnit {
 
         try {
             ClassificationFramework fw = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
-            //ClassificationFramework fw = new ClassificationFramework("asda", "some name", "desc", TechnologyType.FAAS, new ArrayList<>());
-
             template.save(fw, "frameworks");
         } catch (IOException e) {
             e.printStackTrace();
