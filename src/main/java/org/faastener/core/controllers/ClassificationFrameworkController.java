@@ -49,7 +49,7 @@ public class ClassificationFrameworkController {
                     try {
                         return ResponseEntity
                                 .ok()
-                                .eTag(Integer.toString(42))
+                                .eTag(framework.getVersion())
                                 .location(new URI("/api/v1/frameworks/" + framework.getId()))
                                 .body(framework);
                     } catch (URISyntaxException e) {

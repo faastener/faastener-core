@@ -15,6 +15,8 @@ public class ClassificationFramework {
     public String name;
     @Field("technologyType")
     public TechnologyType technologyType;
+    @Field("version")
+    public String version;
     @Field("description")
     public String description;
     @Field("frameworkViews")
@@ -23,11 +25,12 @@ public class ClassificationFramework {
     public ClassificationFramework() {
     }
 
-    public ClassificationFramework(String id, String name, String description, TechnologyType technologyType, List<FrameworkView> frameworkViews) {
+    public ClassificationFramework(String id, String name, TechnologyType technologyType, String version, String description, List<FrameworkView> frameworkViews) {
         this.id = id;
         this.name = name;
-        this.description = description;
         this.technologyType = technologyType;
+        this.version = version;
+        this.description = description;
         this.frameworkViews = frameworkViews;
     }
 
@@ -71,16 +74,36 @@ public class ClassificationFramework {
         this.frameworkViews = frameworkViews;
     }
 
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ClassificationFramework that = (ClassificationFramework) o;
-        return id.equals(that.id) && name.equals(that.name) && description.equals(that.description) && technologyType == that.technologyType && frameworkViews.equals(that.frameworkViews);
+        return id.equals(that.id) && name.equals(that.name) && technologyType == that.technologyType && version.equals(that.version) && Objects.equals(description, that.description) && Objects.equals(frameworkViews, that.frameworkViews);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, technologyType, frameworkViews);
+        return Objects.hash(id, name, technologyType, version, description, frameworkViews);
+    }
+
+    @Override
+    public String toString() {
+        return "ClassificationFramework{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", technologyType=" + technologyType +
+                ", version='" + version + '\'' +
+                ", description='" + description + '\'' +
+                ", frameworkViews=" + frameworkViews +
+                '}';
     }
 }

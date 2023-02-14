@@ -1,31 +1,56 @@
 package org.faastener.core.controllers;
 
-import org.faastener.core.services.ClassificationFrameworkServiceImpl;
+import java.util.Optional;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.services.ClassificationFrameworkService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.doReturn;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(ClassificationFrameworkController.class)
 @TestPropertySource(properties = "mongock.enabled=false")
 class ClassificationFrameworkControllerTest {
     @MockBean
-    private ClassificationFrameworkServiceImpl frameworkService;
+    private ClassificationFrameworkService frameworkService;
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     @DisplayName("GET /frameworks/frameworkId - Found")
-    void testGetReviewByIdFound() throws Exception {
-        // Setup our mocked service
-        //ClassificationFramework mockFramework = new ClassificationFramework();
+    void testGetFrameworkByIdFound() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        ClassificationFramework mockFramework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
+        doReturn(Optional.of(mockFramework)).when(frameworkService).findById("fw-faas");
 
+        mockMvc.perform(get("/api/v1/frameworks/{id}", "fw-faas"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
+
+                .andExpect(header().string(HttpHeaders.ETAG, "\"1.0\""))
+                .andExpect(header().string(HttpHeaders.LOCATION, "/api/v1/frameworks/fw-faas"))
+
+                // Validate the returned fields
+                .andExpect(jsonPath("$.id", is("fw-faas")));
     }
 }
