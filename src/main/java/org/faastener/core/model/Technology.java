@@ -8,5 +8,4 @@ public class Technology {
     public String shortDescription;
     public String logoLocator;
     public String logoLocation;
-    public TechnologyDossier dossier;
 }
