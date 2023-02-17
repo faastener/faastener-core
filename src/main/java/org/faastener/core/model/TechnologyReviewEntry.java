@@ -1,27 +1,18 @@
 package org.faastener.core.model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class TechnologyReviewEntry {
-    public String id;
     public String typeId;
-    public CriterionValue value;
+    public List<CriterionValue> values;
 
     public TechnologyReviewEntry() {
     }
 
-    public TechnologyReviewEntry(String id, String typeId, CriterionValue value) {
-        this.id = id;
+    public TechnologyReviewEntry(String typeId, List<CriterionValue> values) {
         this.typeId = typeId;
-        this.value = value;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this.values = values;
     }
 
     public String getTypeId() {
@@ -32,12 +23,12 @@ public class TechnologyReviewEntry {
         this.typeId = typeId;
     }
 
-    public CriterionValue getValue() {
-        return value;
+    public List<CriterionValue> getValues() {
+        return values;
     }
 
-    public void setValue(CriterionValue value) {
-        this.value = value;
+    public void setValues(List<CriterionValue> values) {
+        this.values = values;
     }
 
     @Override
@@ -45,20 +36,19 @@ public class TechnologyReviewEntry {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TechnologyReviewEntry that = (TechnologyReviewEntry) o;
-        return id.equals(that.id) && typeId.equals(that.typeId) && Objects.equals(value, that.value);
+        return typeId.equals(that.typeId) && Objects.equals(values, that.values);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, typeId, value);
+        return Objects.hash(typeId, values);
     }
 
     @Override
     public String toString() {
         return "TechnologyReviewEntry{" +
-                "id='" + id + '\'' +
-                ", typeId='" + typeId + '\'' +
-                ", value=" + value +
+                "typeId='" + typeId + '\'' +
+                ", values=" + values +
                 '}';
     }
 }

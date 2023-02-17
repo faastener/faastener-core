@@ -13,15 +13,16 @@ public class TechnologyDossier {
     public String id;
     public Date reviewDate;
     public Technology technology;
-    public List<TechnologyReviewEntry> criteria;
+    public List<TechnologyReviewEntry> reviewedCriteria;
 
     public TechnologyDossier() {
     }
 
-    public TechnologyDossier(String id, Date reviewDate, List<TechnologyReviewEntry> criteria) {
+    public TechnologyDossier(String id, Date reviewDate, Technology technology, List<TechnologyReviewEntry> reviewedCriteria) {
         this.id = id;
         this.reviewDate = reviewDate;
-        this.criteria = criteria;
+        this.technology = technology;
+        this.reviewedCriteria = reviewedCriteria;
     }
 
     public String getId() {
@@ -40,12 +41,20 @@ public class TechnologyDossier {
         this.reviewDate = reviewDate;
     }
 
-    public List<TechnologyReviewEntry> getCriteria() {
-        return criteria;
+    public Technology getTechnology() {
+        return technology;
     }
 
-    public void setCriteria(List<TechnologyReviewEntry> criteria) {
-        this.criteria = criteria;
+    public void setTechnology(Technology technology) {
+        this.technology = technology;
+    }
+
+    public List<TechnologyReviewEntry> getReviewedCriteria() {
+        return reviewedCriteria;
+    }
+
+    public void setReviewedCriteria(List<TechnologyReviewEntry> reviewedCriteria) {
+        this.reviewedCriteria = reviewedCriteria;
     }
 
     @Override
@@ -53,12 +62,12 @@ public class TechnologyDossier {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TechnologyDossier that = (TechnologyDossier) o;
-        return id.equals(that.id) && reviewDate.equals(that.reviewDate) && Objects.equals(criteria, that.criteria);
+        return id.equals(that.id) && reviewDate.equals(that.reviewDate) && technology.equals(that.technology) && Objects.equals(reviewedCriteria, that.reviewedCriteria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, reviewDate, criteria);
+        return Objects.hash(id, reviewDate, technology, reviewedCriteria);
     }
 
     @Override
@@ -66,7 +75,8 @@ public class TechnologyDossier {
         return "TechnologyDossier{" +
                 "id='" + id + '\'' +
                 ", reviewDate=" + reviewDate +
-                ", criteria=" + criteria +
+                ", technology=" + technology +
+                ", criteria=" + reviewedCriteria +
                 '}';
     }
 }
