@@ -1,9 +1,16 @@
 package org.faastener.core.controllers;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.model.CriteriaGrouping;
+import org.faastener.core.model.CriterionType;
+import org.faastener.core.model.FrameworkView;
+import org.faastener.core.model.TechnologyType;
 import org.faastener.core.services.ClassificationFrameworkService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,8 +26,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -50,7 +59,6 @@ class ClassificationFrameworkControllerTest {
                 .andExpect(header().string(HttpHeaders.ETAG, "\"1.0\""))
                 .andExpect(header().string(HttpHeaders.LOCATION, "/api/v1/frameworks/fw-faas"))
 
-                // Validate the returned fields
                 .andExpect(jsonPath("$.id", is("fw-faas")))
                 .andExpect(jsonPath("$.technologyType", is("FAAS")))
                 .andExpect(jsonPath("$.frameworkViews.length()", is(2)))
@@ -73,11 +81,34 @@ class ClassificationFrameworkControllerTest {
     @Test
     @DisplayName("POST /api/v1/frameworks - Success")
     void testCreateFramework() throws Exception {
+        List<CriterionType> mockCriteria = new ArrayList<>();
+        mockCriteria.add(new CriterionType("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
+        mockCriteria.add(new CriterionType("criterion1", "criterion type 2", "criterion type 2 description", Collections.emptyList()));
+        CriteriaGrouping mockGrouping = new CriteriaGrouping("groupingId", "test grouping", "grouping description", Collections.emptyList(), mockCriteria);
+        FrameworkView mockView = new FrameworkView("viewId", "test view", "view description", Collections.singletonList(mockGrouping));
+        ClassificationFramework mockFramework = new ClassificationFramework("frameworkId", "test", TechnologyType.FAAS, "1.0", "some description", Collections.singletonList(mockView));
 
+        doReturn(mockFramework).when(frameworkService).save(any());
+
+        mockMvc.perform(post("/api/v1/frameworks")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(mockFramework)))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id", is("frameworkId")))
+                .andExpect(jsonPath("$.technologyType", is("FAAS")))
+                .andExpect(jsonPath("$.frameworkViews.length()", is(1)))
+                .andExpect(jsonPath("$.frameworkViews[0].id", is("viewId")))
+                .andExpect(jsonPath("$.frameworkViews[0].criteriaGroupings.length()", is(1)))
+                .andExpect(jsonPath("$.frameworkViews[0].criteriaGroupings[0].id", is("groupingId")))
+                .andExpect(jsonPath("$.frameworkViews[0].criteriaGroupings[0].criteriaGroupings.length()", is(0)))
+                .andExpect(jsonPath("$.frameworkViews[0].criteriaGroupings[0].criteria.length()", is(2)));
     }
 
-
-
-
-
+    static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

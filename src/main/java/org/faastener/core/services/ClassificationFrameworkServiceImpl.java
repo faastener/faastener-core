@@ -27,7 +27,7 @@ public class ClassificationFrameworkServiceImpl implements ClassificationFramewo
 
     @Override
     public ClassificationFramework save(ClassificationFramework classificationFramework) {
-        return null;
+        return repository.save(classificationFramework);
     }
 
     @Override
