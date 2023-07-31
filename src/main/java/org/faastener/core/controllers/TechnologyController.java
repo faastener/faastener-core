@@ -4,7 +4,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.faastener.core.model.Technology;
-import org.faastener.core.model.TechnologyDossier;
 import org.faastener.core.services.TechnologyDossierService;
 import org.faastener.core.services.TechnologyService;
 import org.slf4j.Logger;
