@@ -45,10 +45,10 @@ class ClassificationFrameworkRepositoryTest {
 
     @Test
     void testFindByIdSuccess() {
-        Optional<ClassificationFramework> framework = repository.findById("fw-faas");
+        Optional<ClassificationFramework> framework = repository.findById("fwFaaS");
         Assertions.assertTrue(framework.isPresent(), "Framework with the given ID should be present");
         framework.ifPresent(fw -> {
-            Assertions.assertEquals("fw-faas", fw.getId(), "Framework ID should be fw-faas");
+            Assertions.assertEquals("fwFaaS", fw.getId(), "Framework ID should be fwFaaS");
             Assertions.assertEquals(TechnologyType.FAAS, fw.getTechnologyType(), "Framework type should be FAAS");
             Assertions.assertEquals(2, fw.getFrameworkViews().size(), "Framework with ID fw-faas should have 2 views");
         });

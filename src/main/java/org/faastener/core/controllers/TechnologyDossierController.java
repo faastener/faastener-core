@@ -13,10 +13,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/dossiers")
+@RequestMapping("/api/dossiers")
 public class TechnologyDossierController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TechnologyDossierController.class);
     private final TechnologyDossierService service;
@@ -49,7 +51,7 @@ public class TechnologyDossierController {
                     try {
                         return ResponseEntity
                                 .ok()
-                                .location(new URI("/api/v1/dossiers/" + dossier.getId()))
+                                .location(new URI("/api/dossiers/" + dossier.getId()))
                                 .body(dossier);
                     } catch (URISyntaxException e) {
                         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

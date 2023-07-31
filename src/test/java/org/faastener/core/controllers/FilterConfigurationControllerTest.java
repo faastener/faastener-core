@@ -38,28 +38,28 @@ class FilterConfigurationControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /api/v1/filters/{id} - Found")
+    @DisplayName("GET /api/filters/{id} - Found")
     void testGetFilterConfigurationByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
         FilterConfiguration mockFilterConfiguration = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfiguration.class);
         doReturn(Optional.of(mockFilterConfiguration)).when(filterConfigurationService).findById("faas-filter");
 
-        mockMvc.perform(get("/api/v1/filters/{id}", "faas-filter"))
+        mockMvc.perform(get("/api/filters/{id}", "faas-filter"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(header().string(HttpHeaders.LOCATION, "/api/v1/filters/faas-filter"))
+                .andExpect(header().string(HttpHeaders.LOCATION, "/api/filters/faas-filter"))
 
                 .andExpect(jsonPath("$.id", is("faas-filter")))
                 .andExpect(jsonPath("$.technologyType", is("FAAS")))
-                .andExpect(jsonPath("$.filters.length()", is(50)));
+                .andExpect(jsonPath("$.filters.length()", is(49)));
     }
 
     @Test
-    @DisplayName("GET /api/v1/filters/{id} - Not Found")
+    @DisplayName("GET /api/filters/{id} - Not Found")
     void testGetFilterConfigurationByIdNotFound() throws Exception {
         doReturn(Optional.empty()).when(filterConfigurationService).findById("fid-1");
-        mockMvc.perform(get("/api/v1/filters/{id}", "fid-1"))
+        mockMvc.perform(get("/api/filters/{id}", "fid-1"))
                 .andExpect(status().isNotFound());
     }
 }

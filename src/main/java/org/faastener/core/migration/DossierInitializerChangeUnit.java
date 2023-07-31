@@ -13,7 +13,7 @@ import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-@ChangeUnit(id = "dossier-initializer", order = "2", author = "v-yussupov")
+@ChangeUnit(id = "dossier-initializer", order = "3", author = "v-yussupov")
 public class DossierInitializerChangeUnit {
     private final MongoTemplate template;
 

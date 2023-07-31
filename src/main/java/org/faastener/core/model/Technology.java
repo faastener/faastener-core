@@ -2,24 +2,27 @@ package org.faastener.core.model;
 
 import java.util.Objects;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "technologies")
 public class Technology {
     public String id;
-    public String name;
+    public String technologyName;
     public TechnologyType technologyType;
-    public String description;
+    public String logoLocation;
     public String shortDescription;
-    public String logoLocator;
+    public String description;
 
     public Technology() {
     }
 
-    public Technology(String id, String name, TechnologyType technologyType, String description, String shortDescription, String logoLocator) {
+    public Technology(String id, String technologyName, TechnologyType technologyType, String description, String shortDescription, String logoLocation) {
         this.id = id;
-        this.name = name;
+        this.technologyName = technologyName;
         this.technologyType = technologyType;
         this.description = description;
         this.shortDescription = shortDescription;
-        this.logoLocator = logoLocator;
+        this.logoLocation = logoLocation;
     }
 
     public String getId() {
@@ -30,12 +33,12 @@ public class Technology {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTechnologyName() {
+        return technologyName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTechnologyName(String technologyName) {
+        this.technologyName = technologyName;
     }
 
     public TechnologyType getTechnologyType() {
@@ -62,12 +65,12 @@ public class Technology {
         this.shortDescription = shortDescription;
     }
 
-    public String getLogoLocator() {
-        return logoLocator;
+    public String getLogoLocation() {
+        return logoLocation;
     }
 
-    public void setLogoLocator(String logoLocator) {
-        this.logoLocator = logoLocator;
+    public void setLogoLocation(String logoLocation) {
+        this.logoLocation = logoLocation;
     }
 
     @Override
@@ -75,23 +78,23 @@ public class Technology {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Technology that = (Technology) o;
-        return id.equals(that.id) && name.equals(that.name) && technologyType == that.technologyType && Objects.equals(description, that.description) && Objects.equals(shortDescription, that.shortDescription) && Objects.equals(logoLocator, that.logoLocator);
+        return id.equals(that.id) && technologyName.equals(that.technologyName) && technologyType == that.technologyType && Objects.equals(description, that.description) && Objects.equals(shortDescription, that.shortDescription) && Objects.equals(logoLocation, that.logoLocation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, technologyType, description, shortDescription, logoLocator);
+        return Objects.hash(id, technologyName, technologyType, description, shortDescription, logoLocation);
     }
 
     @Override
     public String toString() {
         return "Technology{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", type=" + technologyType +
+                ", technologyName='" + technologyName + '\'' +
+                ", technologiesType=" + technologyType +
                 ", description='" + description + '\'' +
                 ", shortDescription='" + shortDescription + '\'' +
-                ", logoLocator='" + logoLocator + '\'' +
+                ", logoLocator='" + logoLocation + '\'' +
                 '}';
     }
 }

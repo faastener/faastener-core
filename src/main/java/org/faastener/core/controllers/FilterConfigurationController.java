@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/filters")
+@RequestMapping("/api/filters")
 public class FilterConfigurationController {
     private static final Logger LOGGER = LoggerFactory.getLogger(FilterConfigurationController.class);
     private final FilterConfigurationService service;
@@ -49,7 +49,7 @@ public class FilterConfigurationController {
                     try {
                         return ResponseEntity
                                 .ok()
-                                .location(new URI("/api/v1/filters/" + filterConfiguration.getId()))
+                                .location(new URI("/api/filters/" + filterConfiguration.getId()))
                                 .body(filterConfiguration);
                     } catch (URISyntaxException e) {
                         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

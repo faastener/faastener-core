@@ -2,6 +2,7 @@ package org.faastener.core.model;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
@@ -12,16 +13,14 @@ public class TechnologyDossier {
     @Id
     public String id;
     public Date reviewDate;
-    public Technology technology;
-    public List<TechnologyReviewEntry> reviewedCriteria;
+    public Map<String, List<TechnologyReviewEntry<?>>> reviewedCriteria;
 
     public TechnologyDossier() {
     }
 
-    public TechnologyDossier(String id, Date reviewDate, Technology technology, List<TechnologyReviewEntry> reviewedCriteria) {
+    public TechnologyDossier(String id, Date reviewDate, Map<String, List<TechnologyReviewEntry<?>>> reviewedCriteria) {
         this.id = id;
         this.reviewDate = reviewDate;
-        this.technology = technology;
         this.reviewedCriteria = reviewedCriteria;
     }
 
@@ -41,19 +40,11 @@ public class TechnologyDossier {
         this.reviewDate = reviewDate;
     }
 
-    public Technology getTechnology() {
-        return technology;
-    }
-
-    public void setTechnology(Technology technology) {
-        this.technology = technology;
-    }
-
-    public List<TechnologyReviewEntry> getReviewedCriteria() {
+    public Map<String, List<TechnologyReviewEntry<?>>> getReviewedCriteria() {
         return reviewedCriteria;
     }
 
-    public void setReviewedCriteria(List<TechnologyReviewEntry> reviewedCriteria) {
+    public void setReviewedCriteria(Map<String, List<TechnologyReviewEntry<?>>> reviewedCriteria) {
         this.reviewedCriteria = reviewedCriteria;
     }
 
@@ -62,12 +53,12 @@ public class TechnologyDossier {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TechnologyDossier that = (TechnologyDossier) o;
-        return id.equals(that.id) && reviewDate.equals(that.reviewDate) && technology.equals(that.technology) && Objects.equals(reviewedCriteria, that.reviewedCriteria);
+        return id.equals(that.id) && reviewDate.equals(that.reviewDate) && Objects.equals(reviewedCriteria, that.reviewedCriteria);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, reviewDate, technology, reviewedCriteria);
+        return Objects.hash(id, reviewDate, reviewedCriteria);
     }
 
     @Override
@@ -75,7 +66,6 @@ public class TechnologyDossier {
         return "TechnologyDossier{" +
                 "id='" + id + '\'' +
                 ", reviewDate=" + reviewDate +
-                ", technology=" + technology +
                 ", criteria=" + reviewedCriteria +
                 '}';
     }

@@ -37,30 +37,29 @@ class TechnologyDossierControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /api/v1/dossiers/{id} - Found")
+    @DisplayName("GET /api/dossiers/{id} - Found")
     void testGetDossierByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         TechnologyDossier mockDossier = mapper.readValue(new ClassPathResource("data/cu2-td-fn.json").getFile(), TechnologyDossier.class);
-        doReturn(Optional.of(mockDossier)).when(dossierService).findById("fn-1");
+        doReturn(Optional.of(mockDossier)).when(dossierService).findById("fn-project");
 
-        mockMvc.perform(get("/api/v1/dossiers/{id}", "fn-1"))
+        mockMvc.perform(get("/api/dossiers/{id}", "fn-project"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(header().string(HttpHeaders.LOCATION, "/api/v1/dossiers/fn-1"))
+                .andExpect(header().string(HttpHeaders.LOCATION, "/api/dossiers/fn-project"))
 
-                .andExpect(jsonPath("$.id", is("fn-1")))
-                .andExpect(jsonPath("$.technology.technologyType", is("FAAS")))
+                .andExpect(jsonPath("$.id", is("fn-project")))
                 .andExpect(jsonPath("$.reviewedCriteria.length()", is(56)));
     }
 
     @Test
-    @DisplayName("GET /api/v1/dossiers/{id} - Not Found")
+    @DisplayName("GET /api/dossiers/{id} - Not Found")
     void testGetDossierByIdNotFound() throws Exception {
         // Setup our mocked service
         doReturn(Optional.empty()).when(dossierService).findById("fn-1");
 
         // Execute the GET request
-        mockMvc.perform(get("/api/v1/dossiers/{id}", "fn-1"))
+        mockMvc.perform(get("/api/dossiers/{id}", "fn-1"))
 
                 // Validate that we get a 404 Not Found response
                 .andExpect(status().isNotFound());

@@ -1,73 +1,52 @@
 {
-  "id": "openwhisk-1",
+  "id": "apache-openwhisk",
   "reviewDate": "2021-02-12",
-  "technology": {
-    "id": "apache-openwhisk",
-    "technologyType": "FAAS",
-    "logoLocator": "apache.openwhisk",
-    "name": "Apache Openwhisk",
-    "shortDescription": "Apache OpenWhisk is an open source FaaS platform from Apache Software Foundation.",
-    "description": "Apache OpenWhisk is an open source, distributed Serverless platform that executes functions (fx) in response to events at any scale. OpenWhisk manages the infrastructure, servers and scaling using Docker containers so you can focus on building amazing and efficient applications. The OpenWhisk platform supports a programming model in which developers write functional logic (called Actions), in any supported programming language, that can be dynamically scheduled and run in response to associated events (via Triggers) from external sources (Feeds) or from HTTP requests. The project includes a REST API-based Command Line Interface (CLI) along with other tooling to support packaging, catalog services and many popular container deployment options."
-  },
-  "reviewedCriteria": [
-    { "typeId": "platform.license", "values": [ { "value": "Apache 2.0", "references": [ "https://github.com/apache/openwhisk/blob/master/LICENSE.txt" ] } ] },
-    { "typeId": "platform.license.type", "values": [ { "value": "permissive" } ] },
-    {
-      "typeId": "platform.installation.type",
-      "values": [ { "value": "installable", "references": [ "https://openwhisk.apache.org/documentation.html#openwhisk_deployment" ], "comment": "IBM Cloud Functions is based on Apache Openwhisk" }]
-    },
-    {
-      "typeId": "platform.installation.targets",
-      "values": [
-        { "value": "Docker", "references": [ "https://openwhisk.apache.org/documentation.html#deploy_docker_compose" ] },
-        { "value": "Kubernetes", "references": [ "https://openwhisk.apache.org/documentation.html#deploy_kubernetes" ] },
-        { "value": "Linux", "references": [ "https://github.com/apache/openwhisk/blob/master/tools/ubuntu-setup/README.md" ] },
-        { "value": "MacOS", "references": [ "https://github.com/apache/openwhisk/blob/master/tools/macos/README.md" ] },
-        { "value": "Mesos", "references": [ "https://github.com/apache/openwhisk-deploy-mesos/blob/master/README.md" ] }
-      ]
-    },
-    { "typeId": "platform.code.availability", "values": [ { "value": "open source", "references": [ "https://github.com/apache/openwhisk" ] } ] },
-    { "typeId": "platform.code.repository", "values": [ { "value": "GitHub", "references": [ "https://github.com/apache/openwhisk" ] } ] },
-    { "typeId": "platform.code.language", "values": [ { "value": "Scala", "references": [ "https://github.com/apache/openwhisk/search?l=scala" ] } ] },
-    {
-      "typeId": "platform.interface.types",
-      "values": [
-        { "value": "CLI", "references": [ "https://openwhisk.apache.org/documentation.html#wsk-cli" ] },
-        { "value": "API", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#using-rest-apis-with-openwhisk" ] }
-      ]
-    },
-    { "typeId": "platform.interface.ops.app-mgmt", "values": [
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/apache/openwhisk/blob/master/LICENSE.txt" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://openwhisk.apache.org/documentation.html#openwhisk_deployment" ], "comment": "IBM Cloud Functions is based on Apache Openwhisk" } ],
+    "installTargets": [
+      { "value": "Docker", "references": [ "https://openwhisk.apache.org/documentation.html#deploy_docker_compose" ] },
+      { "value": "Kubernetes", "references": [ "https://openwhisk.apache.org/documentation.html#deploy_kubernetes" ] },
+      { "value": "Linux", "references": [ "https://github.com/apache/openwhisk/blob/master/tools/ubuntu-setup/README.md" ] },
+      { "value": "MacOS", "references": [ "https://github.com/apache/openwhisk/blob/master/tools/macos/README.md" ] },
+      { "value": "Mesos", "references": [ "https://github.com/apache/openwhisk-deploy-mesos/blob/master/README.md" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/apache/openwhisk" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/apache/openwhisk" ] } ],
+    "developedIn": [ { "value": "Scala", "references": [ "https://github.com/apache/openwhisk/search?l=scala" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://openwhisk.apache.org/documentation.html#wsk-cli" ] },
+      { "value": "API", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#using-rest-apis-with-openwhisk" ] }
+    ],
+    "interfaceAppMgmt": [
       { "value": "create", "references": [], "comment": "The interface is not documented explicitly, available features can be checked via the CLI tool with the -help flag" },
       { "value": "retrieve", "references": [], "comment": "The interface is not documented explicitly, available features can be checked via the CLI tool with the -help flag" },
       { "value": "update", "references": [], "comment": "The interface is not documented explicitly, available features can be checked via the CLI tool with the -help flag" },
       { "value": "delete", "references": [], "comment": "The interface is not documented explicitly, available features can be checked via the CLI tool with the -help flag" }
-    ]
-    },
-    { "typeId": "platform.interface.ops.platform-adm", "values": [
+    ],
+    "interfaceAdmin": [
       { "value": "deployment", "references": [ "https://openwhisk.apache.org/documentation.html#openwhisk_deployment" ] },
       { "value": "configuration", "references": [ "https://github.com/apache/openwhisk/tree/master/tools/admin" ] },
       { "value": "enactment", "references": [ "https://openwhisk.apache.org/documentation.html#openwhisk_deployment" ] }
-    ]
-    },
-    { "typeId": "platform.github.stars", "values": [ { "value": 4800, "references": [ "https://github.com/apache/openwhisk/stargazers" ] } ] },
-    { "typeId": "platform.github.forks", "values": [ { "value": 932, "references": [ "https://github.com/apache/openwhisk/network/members" ] } ] },
-    { "typeId": "platform.github.issues", "values": [ { "value": 274, "references": [ "https://github.com/apache/openwhisk/issues" ] } ] },
-    { "typeId": "platform.github.commits", "values": [ { "value": 2790, "references": [ "https://github.com/apache/openwhisk" ] } ] },
-    { "typeId": "platform.github.contributors", "values": [ { "value": 180, "references": [ "https://github.com/apache/openwhisk" ] } ] },
-    { "typeId": "platform.stackoverflow.questions", "values": [ { "value": 198, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=openwhisk" ] } ] },
-    { "typeId": "platform.documentation", "values": [
+    ],
+    "githubStars": [ { "value": 4800, "references": [ "https://github.com/apache/openwhisk/stargazers" ] } ],
+    "githubForks": [ { "value": 932, "references": [ "https://github.com/apache/openwhisk/network/members" ] } ],
+    "githubIssues": [ { "value": 274, "references": [ "https://github.com/apache/openwhisk/issues" ] } ],
+    "githubCommits": [ { "value": 2790, "references": [ "https://github.com/apache/openwhisk" ] } ],
+    "githubContributors": [ { "value": 180, "references": [ "https://github.com/apache/openwhisk" ] } ],
+    "soQuestions": [ { "value": 198, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=openwhisk" ] } ],
+    "docs": [
       { "value": "usage", "references": [ "https://openwhisk.apache.org/documentation.html#using-openwhisk" ] },
       { "value": "development", "references": [ "https://openwhisk.apache.org/documentation.html#contributors" ] },
       { "value": "deployment", "references": [ "https://openwhisk.apache.org/documentation.html#openwhisk_deployment" ] },
       { "value": "architecture", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/about.md#how-openWhisk-works" ] }
-    ]
-    },
-    { "typeId": "platform.documentation.functions", "values": [
+    ],
+    "docFunctions": [
       { "value": "development", "references": [ "https://openwhisk.apache.org/documentation.html" ] },
       { "value": "deployment", "references": [ "https://openwhisk.apache.org/documentation.html#actions-creating-and-invoking", "https://openwhisk.apache.org/documentation.html#wskdeploy" ] }
-    ]
-    },
-    { "typeId": "platform.function.runtimes", "values": [
+    ],
+    "funcRuntimes": [
       { "value": "Ballerina", "references": [ "https://github.com/apache/openwhisk-runtime-ballerina#readme" ] },
       { "value": "Binary", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/dev/modules.md#runtimes" ] },
       { "value": "Docker Image", "references": [ "https://github.com/apache/openwhisk-runtime-docker#readme" ] },
@@ -81,77 +60,69 @@
       { "value": "Rust", "references": [ "https://github.com/apache/openwhisk-runtime-rust#readme" ] },
       { "value": "Shell", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/actions-docker.md#example-shell-script" ] },
       { "value": "Swift", "references": [ "https://github.com/apache/openwhisk-runtime-swift#readme" ] }
-    ]
-    },
-    { "typeId": "platform.function.runtime-customization", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/actions-new.md" ] } ] },
-    { "typeId": "platform.development.ide-support", "values": [
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/actions-new.md" ] } ],
+    "ide": [
       { "value": "Visual Studio Code", "references": [ "https://github.com/apache/openwhisk-vscode" ], "comment": "deprecated" },
       { "value": "Xcode", "references": [ "https://github.com/apache/openwhisk-xcode" ], "comment": "deprecated" }
-    ]
-    },
-    { "typeId": "platform.function.client-libraries", "values": [
+    ],
+    "clientLibs": [
       { "value": "Go", "references": [ "https://github.com/apache/openwhisk-client-go/blob/master/README.md" ] },
       { "value": "Node.js", "references": [ "https://github.com/apache/openwhisk-client-js/blob/master/README.md#openwhisk-client-for-javascript" ] }
-    ]
-    },
-    { "typeId": "platform.quotas.dep-pkg-size", "values": [ { "value": false, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/reference.md#system-limits" ] } ] },
-    { "typeId": "platform.quotas.execution-time", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/reference.md#system-limits" ] } ] },
-    { "typeId": "platform.function.versioning", "values": [ { "value": "implicit", "references": [] } ] },
-    { "typeId": "platform.function.versioning-app", "values": [ { "value": "implicit", "references": [] } ] },
-    { "typeId": "platform.event-source.endpoint.sync-call", "values": [ { "value": "HTTP", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md", "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#actions"] } ] },
-    { "typeId": "platform.event-source.endpoint.async-call", "values": [ { "value": "HTTP", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#actions"], "comment": "non-blocking invocation is set by default" } ] },
-    { "typeId": "platform.event-source.endpoint.customization", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/apigateway.md" ] } ] },
-    { "typeId": "platform.event-source.endpoint.tls", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md" ] } ] },
-    { "typeId": "platform.event-source.datastore.file-level", "values": [] },
-    { "typeId": "platform.event-source.datastore.database-mode", "values": [ { "value": "IBM Cloudant", "references": [ "https://github.com/apache/openwhisk-package-cloudant/blob/master/README.md" ] } ] },
-    { "typeId": "platform.event-source.scheduler", "values": [ { "value": true, "references": [ "https://github.com/apache/incubator-openwhisk-package-alarms/blob/master/README.md" ] } ] },
-    { "typeId": "platform.event-source.messaging", "values": [] },
-    { "typeId": "platform.event-source.streaming", "values": [
+    ],
+    "pkgSizeQuotas": [ { "value": false, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/reference.md#system-limits" ] } ],
+    "execTimeQuotas": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/reference.md#system-limits" ] } ],
+    "versioning": [ { "value": "implicit", "references": [] } ],
+    "appVersioning": [ { "value": "implicit", "references": [] } ],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md", "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#actions"] } ],
+    "endpointAsyncCall": [ { "value": "HTTP", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/rest_api.md#actions"], "comment": "non-blocking invocation is set by default" } ],
+    "endpointCustomization": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/apigateway.md" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md" ] } ],
+    "datastoreBlob": [],
+    "datastoreDB": [ { "value": "IBM Cloudant", "references": [ "https://github.com/apache/openwhisk-package-cloudant/blob/master/README.md" ] } ],
+    "scheduler": [ { "value": true, "references": [ "https://github.com/apache/incubator-openwhisk-package-alarms/blob/master/README.md" ] } ],
+    "messaging": [],
+    "streaming": [
       { "value": "Apache Kafka", "references": [ "https://github.com/apache/openwhisk-package-kafka/blob/master/README.md" ] },
       { "value": "IBM Message Hub", "references": [ "https://github.com/apache/openwhisk-package-kafka/blob/master/README.md" ] }
-    ]
-    },
-    { "typeId": "platform.event-source.special-purpose-service", "values": [
+    ],
+    "specService": [
       { "value": "GitHub", "references": [ "https://github.com/apache/openwhisk-catalog/blob/master/packages/github/README.md" ] },
       { "value": "Slack", "references": [ "https://github.com/apache/openwhisk-catalog/blob/master/packages/slack/README.md" ] },
       { "value": "Weather Company Data", "references": [ "https://github.com/apache/openwhisk-catalog/blob/master/packages/weather/README.md" ] },
       { "value": "IBM Push Notifications", "references": [ "https://github.com/apache/openwhisk-package-pushnotifications/blob/master/README.md" ] },
       { "value": "Websocket API", "references": [ "https://github.com/apache/openwhisk-catalog/blob/master/packages/websocket/README.md" ] }
-    ]
-    },
-    { "typeId": "platform.event-source.integration", "values": [
+    ],
+    "eventSourceIntegration": [
       { "value": "hooks", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/feeds.md" ] },
       { "value": "polling", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/feeds.md" ] },
       { "value": "connection", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/feeds.md" ] }
-    ]
-    },
-    { "typeId": "platform.function.orchestrator", "values": [ { "value": "Apache OpenWhisk Composer", "references": [ "https://github.com/apache/openwhisk-composer" ] } ] },
-    { "typeId": "platform.function.orchestrator.workflow-definition-type", "values": [ { "value": "orchestrating function", "references": [ "https://github.com/apache/openwhisk-composer#defining-a-composition" ] } ] },
-    { "typeId": "platform.function.orchestrator.workflow-definition-languages", "values": [
+    ],
+    "orchestrator": [ { "value": "Apache OpenWhisk Composer", "references": [ "https://github.com/apache/openwhisk-composer" ] } ],
+    "workflowDefType": [ { "value": "orchestrating function", "references": [ "https://github.com/apache/openwhisk-composer#defining-a-composition" ] } ],
+    "workflowDefLang": [
       { "value": "JavaScript", "references": [ "https://github.com/apache/openwhisk-composer#defining-a-composition" ] },
       { "value": "Python", "references": [ "https://github.com/apache/openwhisk-composer-python" ] }
-    ]
-    },
-    { "typeId": "platform.function.orchestrator.control-flow-docs", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk-composer/blob/master/docs/COMBINATORS.md" ] } ] },
-    { "typeId": "platform.function.orchestrator.quotas.execution-time", "values": [ { "value": true, "references": [ "https://github.com/apache/openwhisk-composer/blob/master/docs/COMMANDS.md#deploy" ] } ] },
-    { "typeId": "platform.function.orchestrator.quotas.io-size", "values": [ { "value": false, "references": [] } ] },
-    { "typeId": "platform.testing.functional", "values": [ { "value": "function invocation testing", "references": [ "https://github.com/apache/openwhisk-devtools/blob/master/node-local/README.md" ], "comment": "Using Openwhisk's CLI tool" } ] },
-    { "typeId": "platform.testing.non-functional", "values": [] },
-    { "typeId": "platform.debugging.local", "values": [] },
-    { "typeId": "platform.debugging.remote", "values": [] },
-    { "typeId": "platform.observability.logging", "values": [ { "value": "Logback (slf4j)", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/logging.md" ] } ] },
-    { "typeId": "platform.observability.monitoring", "values": [
+    ],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://github.com/apache/openwhisk-composer/blob/master/docs/COMBINATORS.md" ] } ],
+    "orchExecTimeQuotas": [ { "value": true, "references": [ "https://github.com/apache/openwhisk-composer/blob/master/docs/COMMANDS.md#deploy" ] } ],
+    "orchIOQuotas": [ { "value": false, "references": [] } ],
+    "testingFunc": [ { "value": "function invocation testing", "references": [ "https://github.com/apache/openwhisk-devtools/blob/master/node-local/README.md" ], "comment": "Using Openwhisk's CLI tool" } ],
+    "testingNonFunc": [],
+    "debuggingLocal": [],
+    "debuggingRemote": [],
+    "logging": [ { "value": "Logback (slf4j)", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/logging.md" ] } ],
+    "monitoring": [
       { "value": "Kamon", "references": [ "https://github.com/apache/openwhisk/tree/master/core/monitoring/user-events", "https://github.com/apache/openwhisk/blob/master/docs/metrics.md" ] },
       { "value": "Prometheus", "references": [ "https://github.com/apache/openwhisk/tree/master/core/monitoring/user-events" ], "comment": "User events can be pushed  via Kamon using user-events service" },
       { "value": "Datadog", "references": [ "https://github.com/apache/openwhisk/tree/master/core/monitoring/user-events" ], "comment": "User events can be pushed  via Kamon using user-events service" }
-    ]
-    },
-    { "typeId": "platform.observability.integration", "values": [] },
-    { "typeId": "platform.deployment-automation", "values": [ { "value": "wskdeploy", "references": [ "https://github.com/apache/openwhisk-wskdeploy" ] } ] },
-    { "typeId": "platform.ci-cd", "values": [] },
-    { "typeId": "platform.function.marketplaces", "values": [] },
-    { "typeId": "platform.function.code-sample-repositories", "values": [ { "value": true, "references": [ "https://openwhisk.apache.org/documentation.html#contributors" ], "comment": "See Samples block" } ] },
-    { "typeId": "platform.authentication", "values": [ { "value": "shared secrets", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md#securing-web-actions" ] } ] },
-    { "typeId": "platform.access-control", "values": [] }
-  ]
+    ],
+    "obsIntegration": [],
+    "depAutomation": [ { "value": "wskdeploy", "references": [ "https://github.com/apache/openwhisk-wskdeploy" ] } ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://openwhisk.apache.org/documentation.html#contributors" ], "comment": "See Samples block" } ],
+    "auth": [ { "value": "shared secrets", "references": [ "https://github.com/apache/openwhisk/blob/master/docs/webactions.md#securing-web-actions" ] } ],
+    "accessControl": []
+  }
 }

@@ -1,49 +1,38 @@
 {
-  "id": "lambda-1",
+  "id": "aws-lambda",
   "reviewDate": "2021-02-12",
-  "technology": {
-    "id": "aws-lambda",
-    "technologyType": "FAAS",
-    "logoLocator": "aws.lambda",
-    "name": "AWS Lambda",
-    "shortDescription": "AWS Lambda is a commerical FaaS platform offering from Amazon.",
-    "description": "AWS Lambda lets you run code without provisioning or managing servers. You pay only for the compute time you consume. With Lambda, you can run code for virtually any type of application or backend service - all with zero administration. Just upload your code and Lambda takes care of everything required to run and scale your code with high availability. You can set up your code to automatically trigger from other AWS services or call it directly from any web or mobile app."
-  },
-  "reviewedCriteria": [
-    { "typeId": "platform.license", "values": [ { "value": "AWS Service Terms", "references": [ "https://aws.amazon.com/service-terms" ] } ] },
-    { "typeId": "platform.license.type", "values": [ { "value": "proprietary" } ] },
-    { "typeId": "platform.installation.type", "values": [ { "value": "as-a-service", "references": [ "https://aws.amazon.com/lambda" ] } ] },
-    { "typeId": "platform.installation.targets", "values": [] },
-    { "typeId": "platform.code.availability", "values": [ { "value": "closed source", "references": [ "https://aws.amazon.com/lambda" ] } ] },
-    { "typeId": "platform.code.repository", "values": [] },
-    { "typeId": "platform.code.language", "values": [] },
-    { "typeId": "platform.interface.types", "values": [
+  "reviewedCriteria": {
+    "license": [ { "value": "AWS Service Terms", "references": [ "https://aws.amazon.com/service-terms" ] } ],
+    "licenseType": [ { "value": "proprietary" } ],
+    "installType": [ { "value": "as-a-service", "references": [ "https://aws.amazon.com/lambda" ] } ],
+    "installTargets": [],
+    "code": [ { "value": "closed source", "references": [ "https://aws.amazon.com/lambda" ] } ],
+    "codeLoc": [],
+    "developedIn": [],
+    "interfaces": [
       { "value": "CLI", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html" ] },
       { "value": "API", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html" ] },
       { "value": "GUI", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html" ] }
-    ]
-    },
-    { "typeId": "platform.interface.ops.app-mgmt", "values": [
+    ],
+    "interfaceAppMgmt": [
       { "value": "create", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html" ] },
       { "value": "retrieve", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html" ] },
       { "value": "update", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html" ] },
       { "value": "delete", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html" ] }
-    ]
-    },
-    { "typeId": "platform.interface.ops.platform-adm", "values": [] },
-    { "typeId": "platform.github.stars", "values": [] },
-    { "typeId": "platform.github.forks", "values": [] },
-    { "typeId": "platform.github.issues", "values": [] },
-    { "typeId": "platform.github.commits", "values": [] },
-    { "typeId": "platform.github.contributors", "values": [] },
-    { "typeId": "platform.stackoverflow.questions", "values": [ { "value": 16800, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=aws-lambda" ] } ] },
-    { "typeId": "platform.documentation", "values": [ { "value": "usage", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" ] } ] },
-    { "typeId": "platform.documentation.functions", "values": [
+    ],
+    "interfaceAdmin": [],
+    "githubStars": [],
+    "githubForks": [],
+    "githubIssues": [],
+    "githubCommits": [],
+    "githubContributors": [],
+    "soQuestions": [ { "value": 16800, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=aws-lambda" ] } ],
+    "docs": [ { "value": "usage", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" ] } ],
+    "docFunctions": [
       { "value": "development", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" ] },
       { "value": "deployment", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html" ] }
-    ]
-    },
-    { "typeId": "platform.function.runtimes", "values": [
+    ],
+    "funcRuntimes": [
       { "value": "Go", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html" ] },
       { "value": "Java", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html" ] },
       { "value": ".NET", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html" ] },
@@ -51,10 +40,9 @@
       { "value": "Python", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html" ] },
       { "value": "Ruby", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html" ] },
       { "value": "Shell", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/powershell-programming-model.html" ] }
-    ]
-    },
-    { "typeId": "platform.function.runtime-customization", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html" ] } ] },
-    { "typeId": "platform.development.ide-support", "values": [
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html" ] } ],
+    "ide": [
       { "value": "AWS Cloud9", "references": [ "https://docs.aws.amazon.com/cloud9/latest/user-guide/tutorial-lambda.html" ] },
       { "value": "Eclipse", "references": [ "https://docs.aws.amazon.com/toolkit-for-eclipse/v1/user-guide/lambda.html" ] },
       { "value": "Jetbrains IntelliJ IDEA", "references": [ "https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/building-lambda.html" ] },
@@ -63,36 +51,33 @@
       { "value": "Jetbrains Rider", "references": [ "https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/building-lambda.html" ] },
       { "value": "Visual Studio", "references": [ "https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/lambda-index.html" ] },
       { "value": "Visual Studio Code", "references": [ "https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/serverless-apps.html" ] }
-    ]
-    },
-    { "typeId": "platform.function.client-libraries", "values": [
+    ],
+    "clientLibs": [
       { "value": "C++", "references": [ "https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/using-lambda-with-go-sdk.html" ] },
-      { "value": "Go", "references": [ "http://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_lambda_1_1_lambda_client.html" ] },
+      { "value": "Go", "references": [ "https://sdk.amazonaws.com/cpp/api/LATEST/class_aws_1_1_lambda_1_1_lambda_client.html" ] },
       { "value": "Java", "references": [ "https://docs.aws.amazon.com/sdk-for-java/v2/developer-guide/lambda-examples.html" ] },
       { "value": ".NET", "references": [ "https://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html" ] },
       { "value": "Node.js", "references": [ "https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/using-lambda-functions.html" ] },
       { "value": "Python", "references": [ "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/lambda.html" ] },
       { "value": "Ruby", "references": [ "https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/lambda-examples.html" ] }
-    ]
-    },
-    { "typeId": "platform.quotas.dep-pkg-size", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html" ] } ] },
-    { "typeId": "platform.quotas.execution-time", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html" ] } ] },
-    { "typeId": "platform.function.versioning", "values": [ { "value": "dedicated mechanisms", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html" ] } ] },
-    { "typeId": "platform.function.versioning-app", "values": [ { "value": "dedicated mechanisms", "references": [ "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-application.html" ] } ] },
-    { "typeId": "platform.event-source.endpoint.sync-call", "values": [ { "value": "HTTP", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/invocation-sync.html" ] } ] },
-    { "typeId": "platform.event-source.endpoint.async-call", "values": [ { "value": "HTTP", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/invocation-async.html" ] } ] },
-    { "typeId": "platform.event-source.endpoint.customization", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html" ] } ] },
-    { "typeId": "platform.event-source.endpoint.tls", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/general/latest/gr/apigateway.html" ] } ] },
-    { "typeId": "platform.event-source.datastore.file-level", "values": [ { "value": "AWS S3", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-s3.html" ] } ] },
-    { "typeId": "platform.event-source.datastore.database-mode", "values": [ { "value": "Amazon DynamoDB", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-ddb.html" ] } ] },
-    { "typeId": "platform.event-source.scheduler", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents-expressions.html" ] } ] },
-    { "typeId": "platform.event-source.messaging", "values": [
+    ],
+    "pkgSizeQuotas": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html" ] } ],
+    "execTimeQuotas": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html" ] } ],
+    "versioning": [ { "value": "dedicated mechanisms", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html" ] } ],
+    "appVersioning": [ { "value": "dedicated mechanisms", "references": [ "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-application.html" ] } ],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/invocation-sync.html" ] } ],
+    "endpointAsyncCall": [ { "value": "HTTP", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/invocation-async.html" ] } ],
+    "endpointCustomization": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-apigateway.html" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://docs.aws.amazon.com/general/latest/gr/apigateway.html" ] } ],
+    "datastoreBlob": [ { "value": "AWS S3", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-s3.html" ] } ],
+    "datastoreDB": [ { "value": "Amazon DynamoDB", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-ddb.html" ] } ],
+    "scheduler": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents-expressions.html" ] } ],
+    "messaging": [
       { "value": "AWS SQS", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-sqs.html" ] },
       { "value": "AWS SNS", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/with-sns.html" ] }
-    ]
-    },
-    { "typeId": "platform.event-source.streaming", "values": [ { "value": "Amazon Kinesis", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-kinesis-example.html" ] } ] },
-    { "typeId": "platform.event-source.special-purpose-service", "values": [
+    ],
+    "streaming": [ { "value": "Amazon Kinesis", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/with-kinesis-example.html" ] } ],
+    "specService": [
       { "value": "Amazon Alexa", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-alexa.html" ] },
       { "value": "AWS CloudTrail", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/with-cloudtrail.html" ] },
       { "value": "AWS CloudWatch", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchevents.html", "https://docs.aws.amazon.com/lambda/latest/dg/services-cloudwatchlogs.html" ] },
@@ -109,42 +94,37 @@
       { "value": "Amazon RDS", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-rds.html" ] },
       { "value": "Amazon SES", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-ses.html" ] },
       { "value": "AWS X-Ray", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html" ] }
-    ]
-    },
-    { "typeId": "platform.event-source.integration", "values": [ { "value": "event source mappings", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html" ] } ] },
-    { "typeId": "platform.function.orchestrator", "values": [ { "value": "AWS Step Functions", "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html" ] } ] },
-    { "typeId": "platform.function.orchestrator.workflow-definition-type", "values": [ { "value": "custom DSL", "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html" ] } ] },
-    { "typeId": "platform.function.orchestrator.workflow-definition-languages", "values": [] },
-    { "typeId": "platform.function.orchestrator.control-flow-docs", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-states.html" ] } ] },
-    { "typeId": "platform.function.orchestrator.quotas.execution-time", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/limits-overview.html" ] } ] },
-    { "typeId": "platform.function.orchestrator.quotas.io-size", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/limits-overview.html" ] } ] },
-    { "typeId": "platform.testing.functional", "values": [ { "value": "function invocation testing", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html" ] } ] },
-    { "typeId": "platform.testing.non-functional", "values": [ { "value": "load testing guidelines", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html" ] } ] },
-    { "typeId": "platform.debugging.local", "values": [ { "value": "step-through debugging", "references": [ "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-debugging.html" ], "comment": "Using IDE plugins or AWS SAM CLI" } ] },
-    { "typeId": "platform.debugging.remote", "values": [] },
-    { "typeId": "platform.observability.logging", "values": [
+    ],
+    "eventSourceIntegration": [ { "value": "event source mappings", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html" ] } ],
+    "orchestrator": [ { "value": "AWS Step Functions", "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html" ] } ],
+    "workflowDefType": [ { "value": "custom DSL", "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html" ] } ],
+    "workflowDefLang": [],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/concepts-states.html" ] } ],
+    "orchExecTimeQuotas": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/limits-overview.html" ] } ],
+    "orchIOQuotas": [ { "value": true, "references": [ "https://docs.aws.amazon.com/step-functions/latest/dg/limits-overview.html" ] } ],
+    "testingFunc": [ { "value": "function invocation testing", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html" ] } ],
+    "testingNonFunc": [ { "value": "load testing guidelines", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html" ] } ],
+    "debuggingLocal": [ { "value": "step-through debugging", "references": [ "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-using-debugging.html" ], "comment": "Using IDE plugins or AWS SAM CLI" } ],
+    "debuggingRemote": [],
+    "logging": [
       { "value": "Amazon CloudWatch", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html" ] },
       { "value": "AWS CloudTrail", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/with-cloudtrail.html" ] }
-    ]
-    },
-    { "typeId": "platform.observability.monitoring", "values": [
+    ],
+    "monitoring": [
       { "value": "Amazon CloudWatch", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-metrics.html" ] }
-    ]
-    },
-    { "typeId": "platform.observability.integration", "values": [] },
-    { "typeId": "platform.deployment-automation", "values": [
+    ],
+    "obsIntegration": [],
+    "depAutomation": [
       { "value": "AWS CloudFormation", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-rolling-deployments.html" ] },
       { "value": "AWS SAM CLI", "references": [ "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-reference.html#serverless-sam-cli" ] }
-    ]
-    },
-    { "typeId": "platform.ci-cd", "values": [ { "value": "AWS CodePipeline", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/build-pipeline.html" ] } ] },
-    { "typeId": "platform.function.marketplaces", "values": [ { "value": "Serverless Application Repository", "references": [ "https://aws.amazon.com/serverless/serverlessrepo" ] } ] },
-    { "typeId": "platform.function.code-sample-repositories", "values": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-samples.html" ] } ] },
-    { "typeId": "platform.authentication", "values": [ { "value": "AWS IAM", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/security-iam.html" ] } ] },
-    { "typeId": "platform.access-control", "values": [
+    ],
+    "cicd": [ { "value": "AWS CodePipeline", "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/build-pipeline.html" ] } ],
+    "funcMarketplaces": [ { "value": "Serverless Application Repository", "references": [ "https://aws.amazon.com/serverless/serverlessrepo" ] } ],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://docs.aws.amazon.com/lambda/latest/dg/lambda-samples.html" ] } ],
+    "auth": [ { "value": "AWS IAM", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/security-iam.html" ] } ],
+    "accessControl": [
       { "value": "resources", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/access-control-identity-based.html" ] },
       { "value": "functions", "references": [ "https://docs.aws.amazon.com/en_pv/lambda/latest/dg/access-control-identity-based.html" ] }
     ]
-    }
-  ]
+  }
 }

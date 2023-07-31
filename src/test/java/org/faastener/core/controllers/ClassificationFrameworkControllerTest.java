@@ -46,40 +46,40 @@ class ClassificationFrameworkControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("GET /api/v1/frameworks/{id} - Found")
+    @DisplayName("GET /api/frameworks/{id} - Found")
     void testGetFrameworkByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         ClassificationFramework mockFramework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
-        doReturn(Optional.of(mockFramework)).when(frameworkService).findById("fw-faas");
+        doReturn(Optional.of(mockFramework)).when(frameworkService).findById("fwFaaS");
 
-        mockMvc.perform(get("/api/v1/frameworks/{id}", "fw-faas"))
+        mockMvc.perform(get("/api/frameworks/{id}", "fwFaaS"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
 
                 .andExpect(header().string(HttpHeaders.ETAG, "\"1.0\""))
-                .andExpect(header().string(HttpHeaders.LOCATION, "/api/v1/frameworks/fw-faas"))
+                .andExpect(header().string(HttpHeaders.LOCATION, "/api/frameworks/fwFaaS"))
 
-                .andExpect(jsonPath("$.id", is("fw-faas")))
+                .andExpect(jsonPath("$.id", is("fwFaaS")))
                 .andExpect(jsonPath("$.technologyType", is("FAAS")))
                 .andExpect(jsonPath("$.frameworkViews.length()", is(2)))
-                .andExpect(jsonPath("$.frameworkViews[0].id", is("view:faas:managerial")));
+                .andExpect(jsonPath("$.frameworkViews[0].id", is("vManagement")));
     }
 
     @Test
-    @DisplayName("GET /api/v1/frameworks/{id} - Not Found")
+    @DisplayName("GET /api/frameworks/{id} - Not Found")
     void testGetFrameworkByIdNotFound() throws Exception {
         // Setup our mocked service
-        doReturn(Optional.empty()).when(frameworkService).findById("fw-faas");
+        doReturn(Optional.empty()).when(frameworkService).findById("fwFaaS");
 
         // Execute the GET request
-        mockMvc.perform(get("/api/v1/frameworks/{id}", "fw-faas"))
+        mockMvc.perform(get("/api/frameworks/{id}", "fwFaaS"))
 
                 // Validate that we get a 404 Not Found response
                 .andExpect(status().isNotFound());
     }
 
     @Test
-    @DisplayName("POST /api/v1/frameworks - Success")
+    @DisplayName("POST /api/frameworks - Success")
     void testCreateFramework() throws Exception {
         List<CriterionType> mockCriteria = new ArrayList<>();
         mockCriteria.add(new CriterionType("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
@@ -90,7 +90,7 @@ class ClassificationFrameworkControllerTest {
 
         doReturn(mockFramework).when(frameworkService).save(any());
 
-        mockMvc.perform(post("/api/v1/frameworks")
+        mockMvc.perform(post("/api/frameworks")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(asJsonString(mockFramework)))
                 .andExpect(status().isCreated())

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/frameworks")
+@RequestMapping("/api/frameworks")
 public class ClassificationFrameworkController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ClassificationFrameworkController.class);
     private final ClassificationFrameworkService service;
@@ -52,7 +52,7 @@ public class ClassificationFrameworkController {
                         return ResponseEntity
                                 .ok()
                                 .eTag(framework.getVersion())
-                                .location(new URI("/api/v1/frameworks/" + framework.getId()))
+                                .location(new URI("/api/frameworks/" + framework.getId()))
                                 .body(framework);
                     } catch (URISyntaxException e) {
                         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
@@ -75,7 +75,6 @@ public class ClassificationFrameworkController {
         LOGGER.info("Saved framework: {}", created);
 
         try {
-            // Build a created response
             return ResponseEntity
                     .created(new URI("/api/v1/frameworks" + created.getId()))
                     .eTag(created.getVersion())

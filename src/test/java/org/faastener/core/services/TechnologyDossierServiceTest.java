@@ -1,13 +1,13 @@
 package org.faastener.core.services;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
-import org.faastener.core.model.Technology;
 import org.faastener.core.model.TechnologyDossier;
 import org.faastener.core.model.TechnologyReviewEntry;
-import org.faastener.core.model.TechnologyType;
 import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -32,10 +32,11 @@ class TechnologyDossierServiceTest {
     @Test
     @DisplayName("Test findById - Success")
     void testFindByIdSuccess() {
-        Technology mockTechnology = new Technology("techId", "techName", TechnologyType.FAAS, "desc", "short desc", "logo locator");
-        List<TechnologyReviewEntry> mockReviewEntries = new ArrayList<>();
-        mockReviewEntries.add(new TechnologyReviewEntry("type1", new ArrayList<>()));
-        TechnologyDossier mockDossier = new TechnologyDossier("some-dossier", null, mockTechnology, mockReviewEntries);
+        Map<String, List<TechnologyReviewEntry<?>>> mockReview = new HashMap<>();
+        List<TechnologyReviewEntry<?>> mockReviewEntries = new ArrayList<>();
+        mockReviewEntries.add(new TechnologyReviewEntry<>(null, "comment", "entry_value"));
+        mockReview.put("type1", mockReviewEntries);
+        TechnologyDossier mockDossier = new TechnologyDossier("some-dossier", null, mockReview);
 
         doReturn(Optional.of(mockDossier)).when(repository).findById("techId");
         Optional<TechnologyDossier> returned = service.findById("techId");
