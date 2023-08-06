@@ -3,7 +3,7 @@ package org.faastener.core.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.model.domain.ClassificationFramework;
 
 public interface ClassificationFrameworkService {
     /**

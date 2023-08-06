@@ -3,7 +3,7 @@ package org.faastener.core.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.faastener.core.model.FilterConfiguration;
+import org.faastener.core.model.domain.FilterConfiguration;
 
 public interface FilterConfigurationService {
     /**

@@ -10,7 +10,7 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import org.faastener.core.model.Technology;
+import org.faastener.core.model.entities.TechnologyEntity;
 import org.faastener.core.repositories.TechnologyRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -39,7 +39,7 @@ public class TechnologyInitializerChangeUnit {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            List<Technology> technologies = mapper.readValue(new ClassPathResource("data/cu2-technologies.json").getFile(), new TypeReference<>() {
+            List<TechnologyEntity> technologies = mapper.readValue(new ClassPathResource("data/cu2-technologies.json").getFile(), new TypeReference<>() {
             });
             template.insertAll(technologies);
         } catch (IOException e) {

@@ -8,7 +8,7 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import org.faastener.core.model.TechnologyDossier;
+import org.faastener.core.model.entities.TechnologyDossierEntity;
 import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -37,34 +37,34 @@ public class DossierInitializerChangeUnit {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            TechnologyDossier td = mapper.readValue(new ClassPathResource("data/cu2-td-openwhisk.json").getFile(), TechnologyDossier.class);
+            TechnologyDossierEntity td = mapper.readValue(new ClassPathResource("data/cu2-td-openwhisk.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-lambda.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-lambda.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-azurefunctions.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-azurefunctions.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-fission.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-fission.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-fn.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-fn.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-gcf.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-gcf.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-knative.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-knative.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-kubeless.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-kubeless.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-nuclio.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-nuclio.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
 
-            td = mapper.readValue(new ClassPathResource("data/cu2-td-openfaas.json").getFile(), TechnologyDossier.class);
+            td = mapper.readValue(new ClassPathResource("data/cu2-td-openfaas.json").getFile(), TechnologyDossierEntity.class);
             template.save(td, "dossiers");
         } catch (IOException e) {
             e.printStackTrace();

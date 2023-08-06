@@ -1,16 +1,19 @@
 package org.faastener.core.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.faastener.core.model.SearchCriterion;
-import org.faastener.core.model.TechnologyDossier;
-import org.faastener.core.model.TechnologyDossierQueryBuilder;
+import lombok.extern.slf4j.Slf4j;
+import org.faastener.core.model.entities.search.SearchCriterion;
+import org.faastener.core.model.entities.TechnologyDossierEntity;
+import org.faastener.core.model.entities.search.TechnologyDossierQueryBuilder;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class TechnologyDossierSearchImpl implements TechnologyDossierSearch {
     private final MongoTemplate mongoTemplate;
 
@@ -19,7 +22,7 @@ public class TechnologyDossierSearchImpl implements TechnologyDossierSearch {
     }
 
     @Override
-    public List<TechnologyDossier> searchDossiers(List<SearchCriterion> params) {
+    public List<TechnologyDossierEntity> searchDossiers(List<SearchCriterion> params) {
         return findDossiers(params, false);
     }
 
@@ -27,11 +30,11 @@ public class TechnologyDossierSearchImpl implements TechnologyDossierSearch {
     public List<String> searchDossierIds(List<SearchCriterion> params) {
         return findDossiers(params, true)
                 .stream()
-                .map(TechnologyDossier::getId)
+                .map(TechnologyDossierEntity::getId)
                 .collect(Collectors.toList());
     }
 
-    private List<TechnologyDossier> findDossiers(List<SearchCriterion> params, boolean onlyIds) {
+    private List<TechnologyDossierEntity> findDossiers(List<SearchCriterion> params, boolean onlyIds) {
         TechnologyDossierQueryBuilder queryBuilder = new TechnologyDossierQueryBuilder();
         params.forEach(queryBuilder);
         Query filterQuery = queryBuilder.getQuery();
@@ -40,6 +43,11 @@ public class TechnologyDossierSearchImpl implements TechnologyDossierSearch {
             filterQuery.fields().include("_id");
         }
 
-        return mongoTemplate.find(filterQuery, TechnologyDossier.class);
+        if (params.isEmpty()) {
+            log.debug("Provided search string was empty, returning an empty TechnologyDossierEntity List");
+            return new ArrayList<>();
+        }
+
+        return mongoTemplate.find(filterQuery, TechnologyDossierEntity.class);
     }
 }

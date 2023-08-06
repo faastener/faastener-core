@@ -1,5 +1,6 @@
 {
-  "id": "openfaas",
+  "id": "openfaas-dossier",
+  "technologyId": "openfaas",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "MIT", "references": [ "https://github.com/openfaas/faas/blob/master/LICENSE" ] } ],

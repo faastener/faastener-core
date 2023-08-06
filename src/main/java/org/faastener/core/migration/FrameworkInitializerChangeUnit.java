@@ -8,7 +8,7 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity;
 import org.faastener.core.repositories.ClassificationFrameworkRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -37,7 +37,7 @@ public class FrameworkInitializerChangeUnit {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            ClassificationFramework fw = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
+            ClassificationFrameworkEntity fw = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFrameworkEntity.class);
             template.save(fw, "frameworks");
         } catch (IOException e) {
             e.printStackTrace();

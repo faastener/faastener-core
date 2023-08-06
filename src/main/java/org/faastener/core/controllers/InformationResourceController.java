@@ -1,6 +1,6 @@
 package org.faastener.core.controllers;
 
-import org.faastener.core.model.InformationSection;
+import org.faastener.core.model.domain.InformationSection;
 import org.faastener.core.services.InformationResourceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

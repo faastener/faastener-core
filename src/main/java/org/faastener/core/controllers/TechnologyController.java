@@ -2,9 +2,9 @@ package org.faastener.core.controllers;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
-import org.faastener.core.model.Technology;
-import org.faastener.core.services.TechnologyDossierService;
+import org.faastener.core.model.domain.Technology;
 import org.faastener.core.services.TechnologyService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,26 +22,30 @@ public class TechnologyController {
     private static final Logger LOGGER = LoggerFactory.getLogger(TechnologyController.class);
 
     private final TechnologyService technologyService;
-    private final TechnologyDossierService technologyDossierService;
 
-    public TechnologyController(TechnologyService technologyService, TechnologyDossierService technologyDossierService) {
+    public TechnologyController(TechnologyService technologyService) {
         this.technologyService = technologyService;
-        this.technologyDossierService = technologyDossierService;
     }
 
     /**
      * Returns all available technologies.
      *
+     * @param search      A search query containing key-value pairs for matching technologies based on available reviewed criteria.
+     * @param withDossier Boolean flag for including available reviewed criteria in the response.
      * @return The list of technologies.
      */
     @GetMapping
-    public Iterable<Technology> getTechnologies(@RequestParam(value = "search", required = false) String search) {
+    public List<Technology> getTechnologies(@RequestParam(value = "search", required = false) String search, @RequestParam(defaultValue = "false", required = false) String withDossier) {
+        boolean dossierRequested = Boolean.parseBoolean(withDossier);
+        List<Technology> res;
+
         if (search != null) {
-            return null;
-            //return this.technologyService.findAll(search);
+            res = this.technologyService.findTechnologies(search, dossierRequested);
         } else {
-            return this.technologyService.findAll();
+            res = this.technologyService.findTechnologies(dossierRequested);
         }
+
+        return res;
     }
 
     /**
@@ -53,7 +57,7 @@ public class TechnologyController {
     @GetMapping
     @RequestMapping("{technologyId}")
     public ResponseEntity<?> getTechnology(@PathVariable String technologyId) {
-        return technologyService.findById(technologyId)
+        return technologyService.findTechnologyById(technologyId)
                 .map(technology -> {
                     try {
                         return ResponseEntity

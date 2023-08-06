@@ -1,5 +1,6 @@
 {
-  "id": "google-cloud-functions",
+  "id": "google-cloud-functions-dossier",
+  "technologyId": "google-cloud-functions",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "Google Cloud Platform Terms", "references": [ "https://cloud.google.com/terms" ] } ],

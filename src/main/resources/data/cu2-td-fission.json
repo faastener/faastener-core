@@ -1,5 +1,6 @@
 {
-  "id": "fission",
+  "id": "fission-dossier",
+  "technologyId": "fission",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/fission/fission/blob/master/LICENSE" ] } ],

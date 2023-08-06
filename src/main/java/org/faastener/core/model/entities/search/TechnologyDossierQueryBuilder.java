@@ -1,4 +1,4 @@
-package org.faastener.core.model;
+package org.faastener.core.model.entities.search;
 
 import java.util.ArrayList;
 import java.util.List;

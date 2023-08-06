@@ -1,5 +1,6 @@
 {
-  "id": "apache-openwhisk",
+  "id": "apache-openwhisk-dossier",
+  "technologyId": "apache-openwhisk",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/apache/openwhisk/blob/master/LICENSE.txt" ] } ],

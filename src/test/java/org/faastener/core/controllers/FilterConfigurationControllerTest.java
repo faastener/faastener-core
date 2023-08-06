@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.faastener.core.model.FilterConfiguration;
+import org.faastener.core.model.entities.FilterConfigurationEntity;
 import org.faastener.core.services.FilterConfigurationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,7 +42,7 @@ class FilterConfigurationControllerTest {
     void testGetFilterConfigurationByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
-        FilterConfiguration mockFilterConfiguration = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfiguration.class);
+        FilterConfigurationEntity mockFilterConfiguration = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfigurationEntity.class);
         doReturn(Optional.of(mockFilterConfiguration)).when(filterConfigurationService).findById("faas-filter");
 
         mockMvc.perform(get("/api/filters/{id}", "faas-filter"))

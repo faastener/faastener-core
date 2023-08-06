@@ -10,7 +10,7 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import org.faastener.core.model.InformationSection;
+import org.faastener.core.model.entities.InformationSectionEntity;
 import org.faastener.core.repositories.InformationResourceRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -39,7 +39,7 @@ public class ResourcesInitializerChangeUnit {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            List<InformationSection> resources = mapper.readValue(new ClassPathResource("data/cu4-resources.json").getFile(), new TypeReference<>() {
+            List<InformationSectionEntity> resources = mapper.readValue(new ClassPathResource("data/cu4-resources.json").getFile(), new TypeReference<>() {
             });
             template.insertAll(resources);
         } catch (IOException e) {

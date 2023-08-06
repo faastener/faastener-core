@@ -3,8 +3,7 @@ package org.faastener.core.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.faastener.core.model.Technology;
-import org.faastener.core.model.TechnologyDossier;
+import org.faastener.core.model.domain.Technology;
 
 public interface TechnologyService {
     /**
@@ -13,14 +12,14 @@ public interface TechnologyService {
      * @param id The ID of the technology to return.
      * @return The technology with the specified ID.
      */
-    Optional<Technology> findById(String id);
+    Optional<Technology> findTechnologyById(String id);
 
     /**
      * Returns all technologies in the database.
      *
      * @return All technologies in the database.
      */
-    List<Technology> findAll();
+    List<Technology> findTechnologies(boolean dossierRequested);
 
     /**
      * Returns all technologies in the database that match the provided filter string.
@@ -28,7 +27,7 @@ public interface TechnologyService {
      * @param filter The filter string.
      * @return All technologies in the database matching the filter string.
      */
-    List<TechnologyDossier> findAll(String filter);
+    List<Technology> findTechnologies(String filter, boolean dossierRequested);
 
     /**
      * Saves the specified technology to the database.

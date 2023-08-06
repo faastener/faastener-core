@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jdk.jfr.Category;
-import org.faastener.core.model.ClassificationFramework;
-import org.faastener.core.model.TechnologyType;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity;
+import org.faastener.core.model.common.TechnologyType;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +22,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @DataMongoTest
 @TestPropertySource(properties = "mongock.enabled=false")
 @Category("integration")
-class ClassificationFrameworkRepositoryTest {
+class ClassificationFrameworkEntityRepositoryTest {
     @Autowired
     private MongoTemplate mongoTemplate;
 
@@ -33,7 +33,7 @@ class ClassificationFrameworkRepositoryTest {
 
     @BeforeEach
     void beforeEach() throws Exception {
-        ClassificationFramework framework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
+        ClassificationFrameworkEntity framework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFrameworkEntity.class);
 
         mongoTemplate.save(framework);
     }
@@ -45,7 +45,7 @@ class ClassificationFrameworkRepositoryTest {
 
     @Test
     void testFindByIdSuccess() {
-        Optional<ClassificationFramework> framework = repository.findById("fwFaaS");
+        Optional<ClassificationFrameworkEntity> framework = repository.findById("fwFaaS");
         Assertions.assertTrue(framework.isPresent(), "Framework with the given ID should be present");
         framework.ifPresent(fw -> {
             Assertions.assertEquals("fwFaaS", fw.getId(), "Framework ID should be fwFaaS");
@@ -56,7 +56,7 @@ class ClassificationFrameworkRepositoryTest {
 
     @Test
     void testFindByIdFailure() {
-        Optional<ClassificationFramework> framework = repository.findById("absentID");
+        Optional<ClassificationFrameworkEntity> framework = repository.findById("absentID");
         Assertions.assertFalse(framework.isPresent(), "No framework with ID absentID should exist");
     }
 }

@@ -1,4 +1,4 @@
-package org.faastener.core.model;
+package org.faastener.core.model.common;
 
 import java.util.Objects;
 
@@ -14,7 +14,7 @@ public enum FilterType {
 
     public final String filterType;
 
-    private FilterType(String filterType) {
+    FilterType(String filterType) {
         this.filterType = filterType;
     }
 

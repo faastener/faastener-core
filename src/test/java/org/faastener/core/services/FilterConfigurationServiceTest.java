@@ -2,7 +2,7 @@ package org.faastener.core.services;
 
 import java.util.Optional;
 
-import org.faastener.core.model.FilterConfiguration;
+import org.faastener.core.model.domain.FilterConfiguration;
 import org.faastener.core.repositories.FilterConfigurationRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

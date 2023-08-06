@@ -1,5 +1,6 @@
 {
-  "id": "aws-lambda",
+  "id": "aws-lambda-dossier",
+  "technologyId": "aws-lambda",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "AWS Service Terms", "references": [ "https://aws.amazon.com/service-terms" ] } ],

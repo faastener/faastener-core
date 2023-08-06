@@ -1,13 +1,19 @@
 package org.faastener.core.controllers;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.faastener.core.model.TechnologyDossier;
-import org.faastener.core.services.TechnologyDossierService;
+import org.faastener.core.model.common.EntityMapper;
+import org.faastener.core.model.domain.Technology;
+import org.faastener.core.model.entities.TechnologyEntity;
+import org.faastener.core.services.TechnologyService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -26,40 +32,47 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@ExtendWith(SpringExtension.class)
-@WebMvcTest(TechnologyDossierController.class)
 @TestPropertySource(properties = "mongock.enabled=false")
-class TechnologyDossierControllerTest {
+@ExtendWith(SpringExtension.class)
+@WebMvcTest(TechnologyController.class)
+class TechnologyControllerTest {
     @MockBean
-    private TechnologyDossierService dossierService;
-
+    private TechnologyService technologiesService;
     @Autowired
     private MockMvc mockMvc;
+    private final EntityMapper entityMapper = new EntityMapper(new ModelMapper());
 
     @Test
-    @DisplayName("GET /api/dossiers/{id} - Found")
-    void testGetDossierByIdFound() throws Exception {
+    @DisplayName("GET /api/technologies/{id} - Found")
+    void testGetTechnologyDossierByTechnologyIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        TechnologyDossier mockDossier = mapper.readValue(new ClassPathResource("data/cu2-td-fn.json").getFile(), TechnologyDossier.class);
-        doReturn(Optional.of(mockDossier)).when(dossierService).findById("fn-project");
 
-        mockMvc.perform(get("/api/dossiers/{id}", "fn-project"))
+        Stream<TechnologyEntity> mockEntityStream = mapper.readValue(new ClassPathResource("data/cu2-technologies.json").getFile(), new TypeReference<List<TechnologyEntity>>() {
+                })
+                .stream()
+                .filter(technology -> technology.getId().equals("fn-project"));
+
+        Technology mockTechnology = entityMapper.toTechnologyDomainModel(mockEntityStream.iterator().next());
+
+        doReturn(Optional.of(mockTechnology)).when(technologiesService).findTechnologyById("fn-project");
+
+        mockMvc.perform(get("/api/technologies/{id}", "fn-project"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(header().string(HttpHeaders.LOCATION, "/api/dossiers/fn-project"))
+                .andExpect(header().string(HttpHeaders.LOCATION, "/api/technologies/fn-project"))
 
-                .andExpect(jsonPath("$.id", is("fn-project")))
-                .andExpect(jsonPath("$.reviewedCriteria.length()", is(56)));
+                .andExpect(jsonPath("$.id", is("fn-project")));
+        //.andExpect(jsonPath("$.reviewedCriteria.length()", is(56)));
     }
 
     @Test
-    @DisplayName("GET /api/dossiers/{id} - Not Found")
+    @DisplayName("GET /api/technologies/{id} - Not Found")
     void testGetDossierByIdNotFound() throws Exception {
         // Setup our mocked service
-        doReturn(Optional.empty()).when(dossierService).findById("fn-1");
+        doReturn(Optional.empty()).when(technologiesService).findTechnologyById("fn-1");
 
         // Execute the GET request
-        mockMvc.perform(get("/api/dossiers/{id}", "fn-1"))
+        mockMvc.perform(get("/api/technologies/{id}", "fn-1"))
 
                 // Validate that we get a 404 Not Found response
                 .andExpect(status().isNotFound());

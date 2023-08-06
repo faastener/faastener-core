@@ -1,5 +1,6 @@
 {
-  "id": "fn-project",
+  "id": "fn-project-dossier",
+  "technologyId": "fn-project",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/fnproject/docs/blob/master/LICENSE" ] } ],

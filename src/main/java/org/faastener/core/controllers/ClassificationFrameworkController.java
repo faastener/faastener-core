@@ -4,7 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import org.faastener.core.model.ClassificationFramework;
+import org.faastener.core.model.domain.ClassificationFramework;
 import org.faastener.core.services.ClassificationFrameworkService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,12 +1,9 @@
-package org.faastener.core.model;
+package org.faastener.core.model.entities.search;
 
 public class SearchCriterion {
     private String key;
     private String operation;
     private Object value;
-
-    public SearchCriterion() {
-    }
 
     public SearchCriterion(final String key, final String operation, final Object value) {
         super();

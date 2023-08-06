@@ -8,7 +8,7 @@ import io.mongock.api.annotations.ChangeUnit;
 import io.mongock.api.annotations.Execution;
 import io.mongock.api.annotations.RollbackBeforeExecution;
 import io.mongock.api.annotations.RollbackExecution;
-import org.faastener.core.model.FilterConfiguration;
+import org.faastener.core.model.entities.FilterConfigurationEntity;
 import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -36,7 +36,7 @@ public class FilterInitializerChangeUnit {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            FilterConfiguration f = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfiguration.class);
+            FilterConfigurationEntity f = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfigurationEntity.class);
             template.save(f, "filters");
         } catch (IOException e) {
             e.printStackTrace();

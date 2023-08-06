@@ -2,37 +2,59 @@ package org.faastener.core.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
-import org.faastener.core.model.SearchCriterion;
-import org.faastener.core.model.Technology;
-import org.faastener.core.model.TechnologyDossier;
+import lombok.RequiredArgsConstructor;
+import org.faastener.core.model.common.EntityMapper;
+import org.faastener.core.model.domain.Technology;
+import org.faastener.core.model.domain.TechnologyDossier;
+import org.faastener.core.model.entities.TechnologyEntity;
+import org.faastener.core.model.entities.search.SearchCriterion;
+import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.faastener.core.repositories.TechnologyRepository;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class TechnologyServiceImpl implements TechnologyService {
-    private final TechnologyRepository repository;
+    private final TechnologyRepository technologyRepository;
+    private final TechnologyDossierRepository technologyDossierRepository;
+    private final EntityMapper entityMapper;
 
-    public TechnologyServiceImpl(TechnologyRepository repository) {
-        this.repository = repository;
+    @Override
+    public Optional<Technology> findTechnologyById(String id) {
+        Optional<TechnologyEntity> res = technologyRepository.findById(id);
+        return res.map(entityMapper::toTechnologyDomainModel);
     }
 
     @Override
-    public Optional<Technology> findById(String id) {
-        return repository.findById(id);
+    public List<Technology> findTechnologies(boolean dossierRequested) {
+        List<Technology> res = technologyRepository.findAll()
+                .stream()
+                .map(entityMapper::toTechnologyDomainModel)
+                .collect(Collectors.toList());
+
+        if (dossierRequested) {
+            Map<String, TechnologyDossier> dossiers = technologyDossierRepository.findAllByTechnologyIdIn(
+                            res.stream().map(Technology::getId).collect(Collectors.toList()))
+                    .stream()
+                    .map(entityMapper::toTechnologyDossierDomainModel)
+                    .collect(Collectors.toMap(TechnologyDossier::getTechnologyId, Function.identity()));
+
+            res.forEach(tech -> tech.setDossier(dossiers.get(tech.getId())));
+        }
+
+        return res;
     }
 
     @Override
-    public List<Technology> findAll() {
-        return repository.findAll();
-    }
-
-    @Override
-    public List<TechnologyDossier> findAll(String filter) {
-        List<SearchCriterion> params = new ArrayList<SearchCriterion>();
+    public List<Technology> findTechnologies(String filter, boolean dossierRequested) {
+        List<SearchCriterion> params = new ArrayList<>();
 
         Pattern pattern = Pattern.compile("(\\w+?)([:<>])(\\w+?),");
         Matcher matcher = pattern.matcher(filter + ",");
@@ -40,8 +62,22 @@ public class TechnologyServiceImpl implements TechnologyService {
             params.add(new SearchCriterion(matcher.group(1),
                     matcher.group(2), matcher.group(3)));
         }
+        Map<String, TechnologyDossier> dossiers = technologyRepository.searchDossiers(params)
+                .stream()
+                .map(entityMapper::toTechnologyDossierDomainModel)
+                .collect(Collectors.toMap(TechnologyDossier::getTechnologyId, Function.identity()));
 
-        return repository.searchDossiers(params);
+        List<Technology> res = technologyRepository.findAllById(
+                        dossiers.values().stream().map(TechnologyDossier::getTechnologyId).collect(Collectors.toList())
+                )
+                .stream()
+                .map(entityMapper::toTechnologyDomainModel)
+                .toList();
+        if (dossierRequested) {
+            res.forEach(tech -> tech.setDossier(dossiers.get(tech.getId())));
+        }
+
+        return res;
     }
 
     @Override

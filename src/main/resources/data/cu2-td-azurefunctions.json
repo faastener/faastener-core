@@ -1,5 +1,6 @@
 {
-  "id": "azure-functions",
+  "id": "azure-functions-dossier",
+  "technologyId": "azure-functions",
   "reviewDate": "2021-02-12",
   "reviewedCriteria": {
     "license": [ { "value": "SLA for Azure Functions", "references": [ "https://azure.microsoft.com/en-gb/support/legal/sla/functions/v1_1/" ] } ],
