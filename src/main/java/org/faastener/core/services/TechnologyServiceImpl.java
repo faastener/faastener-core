@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.faastener.core.model.common.EntityMapper;
 import org.faastener.core.model.domain.Technology;
 import org.faastener.core.model.domain.TechnologyDossier;
+import org.faastener.core.model.entities.TechnologyDossierEntity;
 import org.faastener.core.model.entities.TechnologyEntity;
 import org.faastener.core.model.entities.search.SearchCriterion;
 import org.faastener.core.repositories.TechnologyDossierRepository;
@@ -27,8 +28,18 @@ public class TechnologyServiceImpl implements TechnologyService {
     private final EntityMapper entityMapper;
 
     @Override
-    public Optional<Technology> findTechnologyById(String id) {
+    public Optional<Technology> findTechnologyById(String id, boolean dossierRequested) {
         Optional<TechnologyEntity> res = technologyRepository.findById(id);
+        if (dossierRequested && res.isPresent()) {
+            Technology tech = entityMapper.toTechnologyDomainModel(res.get());
+            Optional<TechnologyDossierEntity> dossier = technologyDossierRepository.findByTechnologyId(tech.getId());
+            dossier.ifPresent(technologyDossierEntity ->
+                    tech.setDossier(entityMapper.toTechnologyDossierDomainModel(technologyDossierEntity))
+            );
+
+            return Optional.of(tech);
+        }
+
         return res.map(entityMapper::toTechnologyDomainModel);
     }
 

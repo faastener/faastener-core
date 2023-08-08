@@ -54,7 +54,7 @@ class TechnologyControllerTest {
 
         Technology mockTechnology = entityMapper.toTechnologyDomainModel(mockEntityStream.iterator().next());
 
-        doReturn(Optional.of(mockTechnology)).when(technologiesService).findTechnologyById("fn-project");
+        doReturn(Optional.of(mockTechnology)).when(technologiesService).findTechnologyById("fn-project", false);
 
         mockMvc.perform(get("/api/technologies/{id}", "fn-project"))
                 .andExpect(status().isOk())
@@ -69,7 +69,7 @@ class TechnologyControllerTest {
     @DisplayName("GET /api/technologies/{id} - Not Found")
     void testGetDossierByIdNotFound() throws Exception {
         // Setup our mocked service
-        doReturn(Optional.empty()).when(technologiesService).findTechnologyById("fn-1");
+        doReturn(Optional.empty()).when(technologiesService).findTechnologyById("fn-1", false);
 
         // Execute the GET request
         mockMvc.perform(get("/api/technologies/{id}", "fn-1"))

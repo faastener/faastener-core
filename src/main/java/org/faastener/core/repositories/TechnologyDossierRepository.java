@@ -12,5 +12,7 @@ import org.springframework.stereotype.Repository;
 public interface TechnologyDossierRepository extends MongoRepository<TechnologyDossierEntity, String>, TechnologyDossierSearch {
     Optional<TechnologyDossierEntity> findById(String technologyId);
 
+    Optional<TechnologyDossierEntity> findByTechnologyId(String id);
+
     Streamable<TechnologyDossierEntity> findAllByTechnologyIdIn(Collection<String> ids);
 }

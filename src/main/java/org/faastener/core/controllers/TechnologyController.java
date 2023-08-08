@@ -56,8 +56,10 @@ public class TechnologyController {
      */
     @GetMapping
     @RequestMapping("{technologyId}")
-    public ResponseEntity<?> getTechnology(@PathVariable String technologyId) {
-        return technologyService.findTechnologyById(technologyId)
+    public ResponseEntity<?> getTechnology(@PathVariable String technologyId, @RequestParam(defaultValue = "false", required = false) String withDossier) {
+        boolean dossierRequested = Boolean.parseBoolean(withDossier);
+
+        return technologyService.findTechnologyById(technologyId, dossierRequested)
                 .map(technology -> {
                     try {
                         return ResponseEntity

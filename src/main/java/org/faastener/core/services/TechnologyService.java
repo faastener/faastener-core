@@ -12,7 +12,7 @@ public interface TechnologyService {
      * @param id The ID of the technology to return.
      * @return The technology with the specified ID.
      */
-    Optional<Technology> findTechnologyById(String id);
+    Optional<Technology> findTechnologyById(String id, boolean dossierRequested);
 
     /**
      * Returns all technologies in the database.
