@@ -1,21 +1,20 @@
 package org.faastener.core.services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Function;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import cz.jirutka.rsql.parser.RSQLParser;
+import cz.jirutka.rsql.parser.RSQLParserException;
+import cz.jirutka.rsql.parser.ast.Node;
 import lombok.RequiredArgsConstructor;
 import org.faastener.core.model.common.EntityMapper;
 import org.faastener.core.model.domain.Technology;
 import org.faastener.core.model.domain.TechnologyDossier;
 import org.faastener.core.model.entities.TechnologyDossierEntity;
 import org.faastener.core.model.entities.TechnologyEntity;
-import org.faastener.core.model.entities.search.SearchCriterion;
 import org.faastener.core.repositories.TechnologyDossierRepository;
 import org.faastener.core.repositories.TechnologyRepository;
 import org.springframework.stereotype.Service;
@@ -64,16 +63,10 @@ public class TechnologyServiceImpl implements TechnologyService {
     }
 
     @Override
-    public List<Technology> findTechnologies(String filter, boolean dossierRequested) {
-        List<SearchCriterion> params = new ArrayList<>();
+    public List<Technology> findTechnologies(String filter, boolean dossierRequested) throws RSQLParserException {
+        Node rootNode = new RSQLParser().parse(filter);
 
-        Pattern pattern = Pattern.compile("(\\w+?)([:<>])(\\w+?),");
-        Matcher matcher = pattern.matcher(filter + ",");
-        while (matcher.find()) {
-            params.add(new SearchCriterion(matcher.group(1),
-                    matcher.group(2), matcher.group(3)));
-        }
-        Map<String, TechnologyDossier> dossiers = technologyRepository.searchDossiers(params)
+        Map<String, TechnologyDossier> dossiers = technologyRepository.searchDossiers(rootNode)
                 .stream()
                 .map(entityMapper::toTechnologyDossierDomainModel)
                 .collect(Collectors.toMap(TechnologyDossier::getTechnologyId, Function.identity()));

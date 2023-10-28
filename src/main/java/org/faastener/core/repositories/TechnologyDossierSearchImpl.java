@@ -1,14 +1,14 @@
 package org.faastener.core.repositories;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import cz.jirutka.rsql.parser.ast.Node;
 import lombok.extern.slf4j.Slf4j;
-import org.faastener.core.model.entities.search.SearchCriterion;
 import org.faastener.core.model.entities.TechnologyDossierEntity;
-import org.faastener.core.model.entities.search.TechnologyDossierQueryBuilder;
+import org.faastener.core.model.entities.search.TechnologySearchRsqlVisitor;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Component;
 
@@ -22,31 +22,30 @@ public class TechnologyDossierSearchImpl implements TechnologyDossierSearch {
     }
 
     @Override
-    public List<TechnologyDossierEntity> searchDossiers(List<SearchCriterion> params) {
-        return findDossiers(params, false);
+    public List<TechnologyDossierEntity> searchDossiers(Node rootQuery) {
+        return findDossiers(rootQuery, false);
     }
 
     @Override
-    public List<String> searchDossierIds(List<SearchCriterion> params) {
-        return findDossiers(params, true)
+    public List<String> searchDossierIds(Node rootQuery) {
+        return findDossiers(rootQuery, true)
                 .stream()
                 .map(TechnologyDossierEntity::getId)
                 .collect(Collectors.toList());
     }
 
-    private List<TechnologyDossierEntity> findDossiers(List<SearchCriterion> params, boolean onlyIds) {
-        TechnologyDossierQueryBuilder queryBuilder = new TechnologyDossierQueryBuilder();
-        params.forEach(queryBuilder);
-        Query filterQuery = queryBuilder.getQuery();
+    private List<TechnologyDossierEntity> findDossiers(Node rootQuery, boolean onlyIds) {
+        Criteria searchCriteria = rootQuery.accept(new TechnologySearchRsqlVisitor());
+        Query filterQuery = new Query(searchCriteria);
 
         if (onlyIds) {
             filterQuery.fields().include("_id");
         }
 
-        if (params.isEmpty()) {
+        /*if (params.isEmpty()) {
             log.debug("Provided search string was empty, returning an empty TechnologyDossierEntity List");
             return new ArrayList<>();
-        }
+        }*/
 
         return mongoTemplate.find(filterQuery, TechnologyDossierEntity.class);
     }

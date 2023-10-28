@@ -4,6 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import cz.jirutka.rsql.parser.RSQLParserException;
 import org.faastener.core.model.domain.Technology;
 import org.faastener.core.services.TechnologyService;
 import org.slf4j.Logger;
@@ -35,17 +36,24 @@ public class TechnologyController {
      * @return The list of technologies.
      */
     @GetMapping
-    public List<Technology> getTechnologies(@RequestParam(value = "search", required = false) String search, @RequestParam(defaultValue = "false", required = false) String withDossier) {
+    public ResponseEntity<?> getTechnologies(@RequestParam(value = "search", required = false) String search, @RequestParam(defaultValue = "false", required = false) String withDossier) {
         boolean dossierRequested = Boolean.parseBoolean(withDossier);
         List<Technology> res;
 
         if (search != null) {
-            res = this.technologyService.findTechnologies(search, dossierRequested);
+            try {
+                res = this.technologyService.findTechnologies(search, dossierRequested);
+            } catch (RSQLParserException exception) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("The provided query string is not a valid RSQL expression.");
+            }
         } else {
             res = this.technologyService.findTechnologies(dossierRequested);
         }
 
-        return res;
+        return ResponseEntity
+                .ok()
+                .body(res);
     }
 
     /**
