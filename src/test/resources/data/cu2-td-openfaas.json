@@ -1,0 +1,126 @@
+{
+  "id": "openfaas-dossier",
+  "technologyId": "openfaas",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "MIT", "references": [ "https://github.com/openfaas/faas/blob/master/LICENSE" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://docs.openfaas.com/deployment/" ] } ],
+    "installTargets": [
+      { "value": "Docker", "references": [ "https://docs.openfaas.com/deployment/" ] },
+      { "value": "faasd", "references": [ "https://docs.openfaas.com/deployment/" ] },
+      { "value": "Kubernetes", "references": [ "https://docs.openfaas.com/deployment/" ] },
+      { "value": "Openshift", "references": [ "https://docs.openfaas.com/deployment/" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/openfaas/faas" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/openfaas/faas" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/openfaas/faas/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://docs.openfaas.com/cli/install/" ] },
+      { "value": "API", "references": [ "https://github.com/openfaas/faas/tree/master/api-docs" ] },
+      { "value": "GUI", "references": [ "https://github.com/openfaas/faas/blob/master/gateway/README.md#ui-portal" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://github.com/openfaas/faas-cli" ] },
+      { "value": "retrieve", "references": [ "https://github.com/openfaas/faas-cli" ] },
+      { "value": "update", "references": [ "https://github.com/openfaas/faas-cli" ] },
+      { "value": "delete", "references": [ "https://github.com/openfaas/faas-cli" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://docs.openfaas.com/deployment/" ] },
+      { "value": "enactment", "references": [ "https://docs.openfaas.com/deployment/" ] }
+    ],
+    "githubStars": [ { "value": 19400, "references": [ "https://github.com/openfaas/faas/stargazers" ] } ],
+    "githubForks": [ { "value": 1600, "references": [ "https://github.com/openfaas/faas/network/members" ] } ],
+    "githubIssues": [ { "value": 19, "references": [ "https://github.com/openfaas/faas/issues" ] } ],
+    "githubCommits": [ { "value": 1994, "references": [ "https://github.com/openfaas/faas/commits/master" ] } ],
+    "githubContributors": [ { "value": 156, "references": [ "https://github.com/openfaas/faas/graphs/contributors" ] } ],
+    "soQuestions": [ { "value": 45, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=openfaas" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://docs.openfaas.com/" ] },
+      { "value": "development", "references": [ "https://docs.openfaas.com/contributing/get-started/" ] },
+      { "value": "deployment", "references": [ "https://docs.openfaas.com/deployment/" ] },
+      { "value": "architecture", "references": [ "https://docs.openfaas.com/architecture/stack/" ] }
+    ],
+    "docFunctions": [
+      { "value": "deployment", "references": [ "https://github.com/openfaas/faas-cli" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "C#", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Docker Image", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Go", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Java", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Node.js", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Python", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "PHP", "references": [ "https://github.com/openfaas/templates" ] },
+      { "value": "Ruby", "references": [ "https://github.com/openfaas/templates" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://github.com/openfaas/templates" ] } ],
+    "ide": [],
+    "clientLibs": [],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "implicit", "references": [ "https://github.com/openfaas/faas/issues/1075" ] } ],
+    "appVersioning": [],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "endpointAsyncCall": [ { "value": "HTTP", "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "endpointCustomization": [ { "value": true, "references": [ "https://docs.openfaas.com/reference/ssl/kubernetes-with-cert-manager/#20-tls-and-custom-domains-for-functions" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://docs.openfaas.com/reference/ssl/kubernetes-with-cert-manager/" ] } ],
+    "datastoreBlob": [ { "value": "Min.io", "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "datastoreDB": [ { "value": "Redis", "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "scheduler": [ { "value": true, "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "messaging": [
+      { "value": "AWS SQS", "references": [ "https://docs.openfaas.com/reference/triggers/"] },
+      { "value": "AWS SNS", "references": [ "https://docs.openfaas.com/reference/triggers/"] },
+      { "value": "MQTT", "references": [ "https://docs.openfaas.com/reference/triggers/"] }
+    ],
+    "streaming": [
+      { "value": "Apache Kafka", "references": [ "https://docs.openfaas.com/reference/triggers/"] },
+      { "value": "NATS", "references": [ "https://docs.openfaas.com/reference/triggers/"] }
+    ],
+    "specService": [
+      { "value": "Azure Event Grid", "references": [ "https://docs.openfaas.com/reference/triggers/"] },
+      { "value": "IFTT", "references": [ "https://docs.openfaas.com/reference/triggers/"] },
+      { "value": "VMWare vCenter", "references": [ "https://docs.openfaas.com/reference/triggers/"] }
+    ],
+    "eventSourceIntegration": [ { "value": "connector plugins", "references": [ "https://docs.openfaas.com/reference/triggers/"] } ],
+    "orchestrator": [],
+    "workflowDefType": [],
+    "workflowDefLang": [],
+    "controlFlowDocs": [],
+    "orchExecTimeQuotas": [],
+    "orchIOQuotas": [],
+    "testingFunc": [],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "log-based debugging", "references": [ "https://docs.openfaas.com/deployment/troubleshooting/" ] } ],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "Kubernetes Cluster API", "references": [ "https://docs.openfaas.com/architecture/logs-provider/" ] },
+      { "value": "Swarm Cluster API", "references": [ "https://docs.openfaas.com/architecture/logs-provider/" ] },
+      { "value": "Loki", "references": [ "https://docs.openfaas.com/architecture/logs-provider/" ] }
+    ],
+    "monitoring": [
+      { "value": "OpenFaaS Gateway + Prometheus", "references": [ "https://docs.openfaas.com/architecture/metrics/" ] }
+    ],
+    "obsIntegration": [ { "value": "pull-based", "references": [ "https://docs.openfaas.com/architecture/logs-provider/" ] } ],
+    "depAutomation": [ { "value": "faas-cli", "references": [ "https://docs.openfaas.com/cli/build/" ] } ],
+    "cicd": [
+      { "value": "OpenFaaS Cloud", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "faas-cli", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "GitLab CI/CD", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "Jenkins", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "Travis", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "CodeFresh", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "Drone CI", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] },
+      { "value": "Circle CI", "references": [ "https://docs.openfaas.com/reference/cicd/intro/" ] }
+    ],
+    "funcMarketplaces": [ { "value": "OpenFaaS Function Store", "references": [ "https://github.com/openfaas/store" ] } ],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://github.com/openfaas/faas/tree/master/sample-functions" ] } ],
+    "auth": [
+      { "value": "shared secrets", "references": [ "https://docs.openfaas.com/reference/authentication/" ] },
+      { "value": "built-in basic authentication", "references": [ "https://docs.openfaas.com/reference/authentication/" ] },
+      { "value": "proprietary OAuth2 API access plugin", "references": [ "https://docs.openfaas.com/reference/authentication/" ] }
+    ],
+    "accessControl": [ { "value": "resources", "references": [ "https://docs.openfaas.com/reference/yaml" ] } ]
+  }
+}

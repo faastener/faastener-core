@@ -4,13 +4,16 @@ import java.util.Optional;
 
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.faastener.core.model.domain.FilterConfiguration;
 import org.faastener.core.model.entities.FilterConfigurationEntity;
 import org.faastener.core.services.FilterConfigurationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -28,7 +31,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(FilterConfigurationController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 @TestPropertySource(properties = "mongock.enabled=false")
 class FilterConfigurationControllerTest {
     @MockBean
@@ -42,7 +46,7 @@ class FilterConfigurationControllerTest {
     void testGetFilterConfigurationByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(MapperFeature.ACCEPT_CASE_INSENSITIVE_ENUMS);
-        FilterConfigurationEntity mockFilterConfiguration = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfigurationEntity.class);
+        FilterConfiguration mockFilterConfiguration = mapper.readValue(new ClassPathResource("data/cu3-filters.json").getFile(), FilterConfiguration.class);
         doReturn(Optional.of(mockFilterConfiguration)).when(filterConfigurationService).findById("faas-filter");
 
         mockMvc.perform(get("/api/filters/{id}", "faas-filter"))

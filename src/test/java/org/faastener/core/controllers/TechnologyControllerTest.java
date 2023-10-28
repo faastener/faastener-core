@@ -15,7 +15,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -33,8 +35,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @TestPropertySource(properties = "mongock.enabled=false")
-@ExtendWith(SpringExtension.class)
-@WebMvcTest(TechnologyController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 class TechnologyControllerTest {
     @MockBean
     private TechnologyService technologiesService;

@@ -6,14 +6,18 @@ import java.util.List;
 import java.util.Optional;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.faastener.core.model.entities.ClassificationFrameworkEntity;
 import org.faastener.core.model.common.TechnologyType;
+import org.faastener.core.model.domain.ClassificationFramework;
+import org.faastener.core.model.domain.ClassificationFramework.CriteriaGrouping;
+import org.faastener.core.model.domain.ClassificationFramework.CriterionType;
+import org.faastener.core.model.domain.ClassificationFramework.FrameworkView;
 import org.faastener.core.services.ClassificationFrameworkService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpHeaders;
@@ -33,7 +37,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(ClassificationFrameworkController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
 @TestPropertySource(properties = "mongock.enabled=false")
 class ClassificationFrameworkControllerTest {
     @MockBean
@@ -46,7 +51,7 @@ class ClassificationFrameworkControllerTest {
     @DisplayName("GET /api/frameworks/{id} - Found")
     void testGetFrameworkByIdFound() throws Exception {
         ObjectMapper mapper = new ObjectMapper();
-        ClassificationFrameworkEntity mockFramework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFrameworkEntity.class);
+        ClassificationFramework mockFramework = mapper.readValue(new ClassPathResource("data/cu1-frameworks.json").getFile(), ClassificationFramework.class);
         doReturn(Optional.of(mockFramework)).when(frameworkService).findById("fwFaaS");
 
         mockMvc.perform(get("/api/frameworks/{id}", "fwFaaS"))
@@ -78,12 +83,12 @@ class ClassificationFrameworkControllerTest {
     @Test
     @DisplayName("POST /api/frameworks - Success")
     void testCreateFramework() throws Exception {
-        List<ClassificationFrameworkEntity.CriterionTypeEntity> mockCriteria = new ArrayList<>();
-        mockCriteria.add(new ClassificationFrameworkEntity.CriterionTypeEntity("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
-        mockCriteria.add(new ClassificationFrameworkEntity.CriterionTypeEntity("criterion1", "criterion type 2", "criterion type 2 description", Collections.emptyList()));
-        ClassificationFrameworkEntity.CriteriaGroupingEntity mockGrouping = new ClassificationFrameworkEntity.CriteriaGroupingEntity("groupingId", "test grouping", "grouping description", Collections.emptyList(), mockCriteria);
-        ClassificationFrameworkEntity.FrameworkViewEntity mockView = new ClassificationFrameworkEntity.FrameworkViewEntity("viewId", "test view", "view description", Collections.singletonList(mockGrouping));
-        ClassificationFrameworkEntity mockFramework = new ClassificationFrameworkEntity("frameworkId", "test", TechnologyType.FAAS, "1.0", "some description", Collections.singletonList(mockView));
+        List<CriterionType> mockCriteria = new ArrayList<>();
+        mockCriteria.add(new CriterionType("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
+        mockCriteria.add(new CriterionType("criterion1", "criterion type 2", "criterion type 2 description", Collections.emptyList()));
+        CriteriaGrouping mockGrouping = new CriteriaGrouping("groupingId", "test grouping", "grouping description", Collections.emptyList(), mockCriteria);
+        FrameworkView mockView = new FrameworkView("viewId", "test view", "view description", Collections.singletonList(mockGrouping));
+        ClassificationFramework mockFramework = new ClassificationFramework("frameworkId", "test", TechnologyType.FAAS, "1.0", "some description", Collections.singletonList(mockView));
 
         doReturn(mockFramework).when(frameworkService).save(any());
 

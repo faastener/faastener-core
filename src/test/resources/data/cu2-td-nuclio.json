@@ -1,0 +1,118 @@
+{
+  "id": "nuclio-dossier",
+  "technologyId": "nuclio",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/nuclio/nuclio/blob/master/LICENSE" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [
+      { "value": "installable", "references": [ "https://github.com/nuclio/nuclio" ] },
+      { "value": "as-a-service", "references": [ "https://nuclio.io" ] }
+    ],
+    "installTargets": [
+      { "value": "Kubernetes", "references": [ "https://nuclio.io/docs/latest/setup/k8s/" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/nuclio/nuclio" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/nuclio/nuclio" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/nuclio/nuclio/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] },
+      { "value": "GUI", "references": [ "https://github.com/nuclio/nuclio/blob/master/README.md#dashboard" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] },
+      { "value": "retrieve", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] },
+      { "value": "update", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] },
+      { "value": "delete", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://nuclio.io/docs/latest/setup/k8s/" ] },
+      { "value": "configuration", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/" ] },
+      { "value": "enactment", "references": [ "https://nuclio.io/docs/latest/setup/k8s/" ] }
+    ],
+    "githubStars": [ { "value": 3818, "references": [ "https://github.com/nuclio/nuclio/stargazers" ] } ],
+    "githubForks": [ { "value": 384, "references": [ "https://github.com/nuclio/nuclio/network/members" ] } ],
+    "githubIssues": [ { "value": 80, "references": [ "https://github.com/nuclio/nuclio/issues" ] } ],
+    "githubCommits": [ { "value": 1394, "references": [ "https://github.com/nuclio/nuclio/commits/development" ] } ],
+    "githubContributors": [ { "value": 61, "references": [ "https://github.com/nuclio/nuclio/graphs/contributors" ] } ],
+    "soQuestions": [ { "value": 6, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=nuclio" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://nuclio.io/docs/latest/introduction/" ] },
+      { "value": "deployment", "references": [ "https://nuclio.io/docs/latest/setup/" ] },
+      { "value": "architecture", "references": [ "https://nuclio.io/docs/latest/concepts/architecture/" ] }
+    ],
+    "docFunctions": [
+      { "value": "deployment", "references": [ "https://nuclio.io/docs/latest/tasks/deploying-functions/" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Binary", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/shell/writing-a-shell-function" ] },
+      { "value": "Docker Image", "references": [ "https://nuclio.io/docs/latest/tasks/deploy-functions-from-dockerfile/" ] },
+      { "value": "C#", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/dotnetcore/" ] },
+      { "value": "Go", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/golang/" ] },
+      { "value": "Java", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/java/" ] },
+      { "value": "Node.js", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/nodejs/" ] },
+      { "value": "Python", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/python/" ] },
+      { "value": "Shell", "references": [ "https://nuclio.io/docs/latest/reference/runtimes/shell/" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://nuclio.io/docs/latest/reference/function-configuration/function-configuration-reference/" ] } ],
+    "ide": [ { "value": "Jupyter Notebooks", "references": [ "https://github.com/nuclio/nuclio-jupyter" ] } ],
+    "clientLibs": [
+      { "value": "Go", "references": [ "https://github.com/nuclio/nuclio-sdk-go" ] },
+      { "value": "Java", "references": [ "https://github.com/nuclio/nuclio-sdk-java" ] },
+      { "value": "C#", "references": [ "https://github.com/nuclio/nuclio-sdk-dotnetcore" ] },
+      { "value": "Python", "references": [ "https://github.com/nuclio/nuclio-sdk-py" ] }
+    ],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "dedicated mechanisms", "references": [ "https://github.com/nuclio/nuclio/blob/master/docs/concepts/architecture.md#function-versioning" ] } ],
+    "appVersioning": [],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://nuclio.io/docs/latest/reference/triggers/"] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://nuclio.io/docs/latest/reference/triggers/" ] } ],
+    "endpointTLS": [ { "value": false, "references": [] } ],
+    "datastoreBlob": [],
+    "datastoreDB": [],
+    "scheduler": [ { "value": true, "references": [ "https://nuclio.io/docs/latest/reference/triggers/cron/" ] } ],
+    "messaging": [
+      { "value": "RabbitMQ", "references": [ "https://nuclio.io/docs/latest/reference/triggers/rabbitmq/"] },
+      { "value": "MQTT", "references": [ "https://nuclio.io/docs/latest/reference/triggers/mqtt/"] },
+      { "value": "NATS", "references": [ "https://nuclio.io/docs/latest/reference/triggers/nats/"] }
+    ],
+    "streaming": [
+      { "value": "Apache Kafka", "references": [ "https://nuclio.io/docs/latest/reference/triggers/kafka/"] },
+      { "value": "AWS Kinesis", "references": [ "https://nuclio.io/docs/latest/reference/triggers/kinesis/"] },
+      { "value": "Iguazio Data Science Platform", "references": [ "https://nuclio.io/docs/latest/reference/triggers/v3iostream/"] },
+      { "value": "Azure Event Hubs", "references": [ "https://nuclio.io/docs/latest/reference/triggers/eventhub/"] }
+    ],
+    "specService": [],
+    "eventSourceIntegration": [],
+    "orchestrator": [],
+    "workflowDefType": [],
+    "workflowDefLang": [],
+    "controlFlowDocs": [],
+    "orchExecTimeQuotas": [],
+    "orchIOQuotas": [],
+    "testingFunc": [],
+    "testingNonFunc": [],
+    "debuggingLocal": [],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "stdout", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/#supported-metric-sinks" ] },
+      { "value": "Azure Application Insights", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/#supported-metric-sinks" ] }
+    ],
+    "monitoring": [
+      { "value": "Prometheus", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/#supported-log-sinks" ] },
+      { "value": "Azure Application Insights", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/#supported-log-sinks" ] }
+    ],
+    "obsIntegration": [
+      { "value": "push-based", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/" ] },
+      { "value": "pull-based", "references": [ "https://nuclio.io/docs/latest/tasks/configuring-a-platform/" ] }
+    ],
+    "depAutomation": [ { "value": "nuctl", "references": [ "https://nuclio.io/docs/latest/reference/nuctl/" ] } ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://nuclio.io/docs/latest/examples/" ] } ],
+    "auth": [],
+    "accessControl": []
+  }
+}

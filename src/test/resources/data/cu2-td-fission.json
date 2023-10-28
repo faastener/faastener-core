@@ -1,0 +1,110 @@
+{
+  "id": "fission-dossier",
+  "technologyId": "fission",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/fission/fission/blob/master/LICENSE" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://docs.fission.io/installation/" ] } ],
+    "installTargets": [ { "value": "Kubernetes", "references": [ "https://docs.fission.io/docs/installation/" ] } ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/fission/fission/blob/master/LICENSE" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/fission/fission" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/fission/fission/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://docs.fission.io/docs/installation/#install-fission-cli" ] },
+      { "value": "API", "references": [ "https://docs.fission.io/docs/concepts/components/core/controller/#api" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://docs.fission.io/docs/concepts/components/core/controller/#api" ] },
+      { "value": "retrieve", "references": [ "https://docs.fission.io/docs/concepts/components/core/controller/#api" ] },
+      { "value": "update", "references": [ "https://docs.fission.io/docs/concepts/components/core/controller/#api" ] },
+      { "value": "delete", "references": [ "https://docs.fission.io/docs/concepts/components/core/controller/#api" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://github.com/fission/fission/blob/master/charts/README.md" ] },
+      { "value": "configuration", "references": [ "https://github.com/fission/fission/tree/master/charts#configuration" ] },
+      { "value": "enactment", "references": [ "https://github.com/fission/fission/blob/master/charts/README.md" ] }
+    ],
+    "githubStars": [ { "value": 5200, "references": [ "https://github.com/fission/fission/stargazers" ] } ],
+    "githubForks": [ { "value": 487, "references": [ "https://github.com/fission/fission/network/members" ] } ],
+    "githubIssues": [ { "value": 215, "references": [ "https://github.com/fission/fission/issues" ] } ],
+    "githubCommits": [ { "value": 1156, "references": [ "https://github.com/fission/fission" ] } ],
+    "githubContributors": [ { "value": 104, "references": [ "https://github.com/fission/fission" ] } ],
+    "soQuestions": [ { "value": 7, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=kubernetes-fission" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://docs.fission.io/docs/usage" ] },
+      { "value": "development", "references": [ "https://docs.fission.io/docs/contributing" ] },
+      { "value": "deployment", "references": [ "https://docs.fission.io/docs/installation" ] },
+      { "value": "architecture", "references": [ "https://github.com/fission/fission/blob/master/Documentation/Architecture.md" ] }
+    ],
+    "docFunctions": [
+      { "value": "development", "references": [ "https://docs.fission.io/docs/usage/functions/" ] },
+      { "value": "deployment", "references": [ "https://docs.fission.io/docs/spec/" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Binary", "references": [ "https://docs.fission.io/docs/languages" ] },
+      { "value": "C#", "references": [ "https://docs.fission.io/docs/languages" ] },
+      { "value": "Go", "references": [ "https://docs.fission.io/docs/languages/go" ] },
+      { "value": "Java", "references": [ "https://docs.fission.io/docs/languages/java" ] },
+      { "value": "Node.js", "references": [ "https://docs.fission.io/docs/languages/nodejs" ] },
+      { "value": "Perl", "references": [ "https://docs.fission.io/docs/languages" ] },
+      { "value": "PHP", "references": [ "https://docs.fission.io/docs/languages" ] },
+      { "value": "Python", "references": [ "https://docs.fission.io/docs/languages/python" ] },
+      { "value": "Ruby", "references": [ "https://docs.fission.io/docs/languages" ] },
+      { "value": "Shell", "references": [ "https://github.com/fission/fission/tree/master/environments/binary" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://docs.fission.io/docs/concepts/#environments" ] } ],
+    "ide": [],
+    "clientLibs": [],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "implicit", "references": [ "https://docs.fission.io/docs/usage/package/" ], "comment": "Package can group multiple functions and be implicitly versioned" } ],
+    "appVersioning": [ { "value": "implicit", "references": [ "https://docs.fission.io/docs/usage/canary-deployments" ], "comment": "Versions can be encoded as in canary deployment spec" } ],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://docs.fission.io/docs/triggers/http-trigger/"] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://docs.fission.io/docs/triggers/http-trigger/" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://docs.fission.io/docs/installation/advanced-setup/#setup-ssltls-for-functions" ] } ],
+    "datastoreBlob": [],
+    "datastoreDB": [],
+    "scheduler": [ { "value": true, "references": [ "https://docs.fission.io/docs/triggers/timer" ] } ],
+    "messaging": [
+      { "value": "NATS Streaming", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger/nats-streaming" ] },
+      { "value": "Azure Storage Queue", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger" ] },
+      { "value": "AWS SQS", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger-kind-keda/aws-sqs" ] }
+    ],
+    "streaming": [
+      { "value": "Apache Kafka", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger/kafka/" ] },
+      { "value": "AWS Kinesis", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger-kind-keda/aws-kinesis" ] }
+    ],
+    "specService": [
+      { "value": "KubeWatcher", "references": [ "https://docs.fission.io/docs/concepts/components/optional/kubewatcher" ] }
+    ],
+    "eventSourceIntegration": [
+      { "value": "plugin-based", "references": [ "https://docs.fission.io/docs/triggers/message-queue-trigger/#how-to-add-new-message-queue-support" ] }
+    ],
+    "orchestrator": [ { "value": "Fission Workflows", "references": [ "https://docs.fission.io/docs/workflows" ] } ],
+    "workflowDefType": [ { "value": "custom DSL", "references": [ "https://docs.fission.io/docs/workflows/#creating-your-first-workflow" ] } ],
+    "workflowDefLang": [],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://github.com/fission/fission-workflows/blob/master/Docs/functions.md" ] } ],
+    "orchExecTimeQuotas": [ { "value": false, "references": [] } ],
+    "orchIOQuotas": [ { "value": false, "references": [] } ],
+    "testingFunc": [ { "value": "function invocation testing", "references": [ "https://docs.fission.io/docs/usage/functions/#test-and-debug-function" ] } ],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "log-based debugging", "references": [ "https://docs.fission.io/docs/usage/functions/#test-and-debug-function" ] } ],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "Fission Logger + InfluxDB", "references": [ "https://docs.fission.io/docs/concepts/components/optional/logger" ] },
+      { "value": "Istio + Jaeger", "references": [ "https://docs.fission.io/docs/usage/enabling-istio-on-fission/#jaeger" ] }
+    ],
+    "monitoring": [
+      { "value": "Istio + Prometheus", "references": [ "https://docs.fission.io/docs/usage/enabling-istio-on-fission/#prometheus" ] }
+    ],
+    "obsIntegration": [ { "value": "Via service mesh add-ons", "references": [ "https://docs.fission.io/docs/usage/enabling-istio-on-fission/#install-istio-add-ons" ] } ],
+    "depAutomation": [ { "value": "Fission CLI", "references": [ "https://docs.fission.io/docs/spec/#apply-deploy-your-functions-to-fission" ] } ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://github.com/fission/fission/tree/master/examples" ] } ],
+    "auth": [ { "value": "Via Kubernetes mechanisms", "references": [ "https://docs.fission.io/docs/usage/access-secret-cfgmap-in-function/" ] } ],
+    "accessControl": []
+  }
+}

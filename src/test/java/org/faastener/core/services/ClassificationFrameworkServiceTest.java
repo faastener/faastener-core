@@ -8,6 +8,10 @@ import java.util.Optional;
 import org.faastener.core.model.common.EntityMapper;
 import org.faastener.core.model.common.TechnologyType;
 import org.faastener.core.model.domain.ClassificationFramework;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity.CriteriaGroupingEntity;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity.CriterionTypeEntity;
+import org.faastener.core.model.entities.ClassificationFrameworkEntity.FrameworkViewEntity;
 import org.faastener.core.repositories.ClassificationFrameworkRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -36,19 +40,22 @@ class ClassificationFrameworkServiceTest {
     @Test
     @DisplayName("Test findById - Success")
     void testFindByIdSuccess() {
-        List<ClassificationFramework.CriterionType> mockCriteria = new ArrayList<>();
-        mockCriteria.add(new ClassificationFramework.CriterionType("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
-        mockCriteria.add(new ClassificationFramework.CriterionType("criterion1", "criterion type 2", "criterion type 2 description", Collections.emptyList()));
-        ClassificationFramework.CriteriaGrouping mockGrouping = new ClassificationFramework.CriteriaGrouping("groupingId", "test grouping", "grouping description", Collections.emptyList(), mockCriteria);
-        ClassificationFramework.FrameworkView mockView = new ClassificationFramework.FrameworkView("viewId", "test view", "view description", Collections.singletonList(mockGrouping));
-        ClassificationFramework mockFramework = new ClassificationFramework("frameworkId", "test", TechnologyType.FAAS, "1.0", "some description", Collections.singletonList(mockView));
+        List<CriterionTypeEntity> mockCriteria = new ArrayList<>();
+        mockCriteria.add(new CriterionTypeEntity("criterion1", "criterion type 1", "criterion type 1 description", Collections.emptyList()));
+        mockCriteria.add(new CriterionTypeEntity("criterion1", "criterion type 2", "criterion type 2 description", Collections.emptyList()));
+        CriteriaGroupingEntity mockGrouping = new CriteriaGroupingEntity("groupingId", "test grouping", "grouping description", Collections.emptyList(), mockCriteria);
+        FrameworkViewEntity mockView = new FrameworkViewEntity("viewId", "test view", "view description", Collections.singletonList(mockGrouping));
+        ClassificationFrameworkEntity mockFrameworkEntity = new ClassificationFrameworkEntity("frameworkId", "test", TechnologyType.FAAS, "1.0", "some description", Collections.singletonList(mockView));
 
-        doReturn(Optional.of(mockFramework)).when(repository).findById("frameworkId");
+        doReturn(Optional.of(mockFrameworkEntity)).when(repository).findById("frameworkId");
 
         Optional<ClassificationFramework> returned = service.findById("frameworkId");
 
         Assertions.assertTrue(returned.isPresent(), "Classification framework was not found");
-        Assertions.assertSame(returned.get(), mockFramework, "Classification framework should be the same");
+        Assertions.assertEquals(returned.get().getId(), mockFrameworkEntity.getId(), "Classification framework should have the same id");
+        Assertions.assertEquals(returned.get().getName(), mockFrameworkEntity.getName(), "Classification framework should have the same name");
+        Assertions.assertEquals(returned.get().getTechnologyType(), mockFrameworkEntity.getTechnologyType(), "Classification framework should be of the same technology type");
+        Assertions.assertEquals(returned.get().getFrameworkViews().size(), mockFrameworkEntity.getFrameworkViews().size(), "Classification framework should have the same number of views");
     }
 
     @Test

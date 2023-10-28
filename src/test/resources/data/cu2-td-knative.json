@@ -1,0 +1,111 @@
+{
+  "id": "knative-dossier",
+  "technologyId": "knative",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/knative/serving/blob/master/LICENSE" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://knative.dev/docs/install" ] } ],
+    "installTargets": [
+      { "value": "Kubernetes", "references": [ "https://knative.dev/docs/install" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/knative/serving" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/knative/serving" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/knative/serving/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://github.com/knative/client" ] },
+      { "value": "API", "references": [ "https://github.com/knative/docs/blob/master/docs/serving/spec/knative-api-specification-1.0.md" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://github.com/knative/client/blob/master/docs/cmd/kn_service.md" ] },
+      { "value": "retrieve", "references": [ "https://github.com/knative/client/blob/master/docs/cmd/kn_service.md" ] },
+      { "value": "update", "references": [ "https://github.com/knative/client/blob/master/docs/cmd/kn_service.md" ] },
+      { "value": "delete", "references": [ "https://github.com/knative/client/blob/master/docs/cmd/kn_service.md" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://knative.dev/docs/install/any-kubernetes-cluster" ] },
+      { "value": "configuration", "references": [ "https://knative.dev/docs/install/any-kubernetes-cluster" ] },
+      { "value": "enactment", "references": [ "https://knative.dev/docs/install/any-kubernetes-cluster" ] }
+    ],
+    "githubStars": [ { "value": 3600, "references": [ "https://github.com/knative/serving/stargazers" ] } ],
+    "githubForks": [ { "value": 764, "references": [ "https://github.com/knative/serving/network/members" ] } ],
+    "githubIssues": [ { "value": 173, "references": [ "https://github.com/knative/serving/issues" ] } ],
+    "githubCommits": [ { "value": 6323, "references": [ "https://github.com/knative/serving/commits/master" ] } ],
+    "githubContributors": [ { "value": 218, "references": [ "https://github.com/knative/serving/graphs/contributors" ] } ],
+    "soQuestions": [ { "value": 93, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=knative" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://knative.dev/docs/serving" ] },
+      { "value": "development", "references": [ "https://github.com/knative/serving/blob/master/DEVELOPMENT.md" ] },
+      { "value": "deployment", "references": [ "https://knative.dev/docs/install/" ] }
+    ],
+    "docFunctions": [
+      { "value": "deployment", "references": [ "https://knative.dev/docs/serving/getting-started-knative-app" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Docker", "references": [ "https://knative.dev/docs/serving/getting-started-knative-app" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://github.com/knative/serving/blob/master/docs/spec/overview.md#service" ] } ],
+    "ide": [],
+    "clientLibs": [],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "dedicated mechanisms", "references": [ "https://github.com/knative/serving/blob/master/docs/spec/overview.md#revision" ], "comment": "Revision resource represents an immutable version of a function" } ],
+    "appVersioning": [],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://knative.dev/docs/serving/getting-started-knative-app"] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://knative.dev/docs/serving/samples/knative-routing-go/index.html" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://knative.dev/docs/serving/using-auto-tls" ] } ],
+    "datastoreBlob": [ { "value": "Google Cloud Storage", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] } ],
+    "datastoreDB": [
+      { "value": "Apache CouchDB", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/knative-sandbox/eventing-couchdb/tree/main/source" ] },
+      { "value": "AWS DynamoDB", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/triggermesh/aws-event-sources/blob/master/cmd/awsdynamodbsource/README.md" ] }
+    ],
+    "scheduler": [ { "value": true, "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] } ],
+    "messaging": [
+      { "value": "AWS SQS", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/knative-sandbox/eventing-awssqs/blob/main/pkg/apis/sources/v1alpha1/aws_sqs_types.go", "https://github.com/triggermesh/aws-event-sources/blob/master/cmd/awssqssource/README.md" ] },
+      { "value": "AWS SNS", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/triggermesh/aws-event-sources/tree/master/cmd/awssnssource" ] },
+      { "value": "Google Cloud PubSub", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/google/knative-gcp/blob/main/docs/examples/cloudpubsubsource/README.md" ] },
+      { "value": "RabbitMQ", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/knative-sandbox/eventing-rabbitmq" ] }
+    ],
+    "streaming": [
+      { "value": "Apache Kafka", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/knative-sandbox/eventing-kafka/blob/master/pkg/apis/sources/v1beta1/kafka_types.go" ] },
+      { "value": "AWS Kinesis", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/triggermesh/aws-event-sources/blob/master/cmd/awskinesissource/README.md" ] },
+      { "value": "Google Cloud PubSub", "references": [ "https://knative.dev/docs/eventing/sources/index.html", "https://github.com/google/knative-gcp/blob/main/docs/examples/cloudpubsubsource/README.md" ] }
+    ],
+    "specService": [
+      { "value": "Apache Camel", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "Kubernetes API server events", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "GitHub", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "GitLab", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "BitBucket", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "Google Cloud Scheduler", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "AWS CodeCommit", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "AWS Cognito", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "FTP/SFTP", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "Heartbeat events", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] },
+      { "value": "Websocket", "references": [ "https://knative.dev/docs/eventing/sources/index.html" ] }
+    ],
+    "eventSourceIntegration": [ {"value": "plugin-based", "references": [ "https://knative.dev/docs/eventing/samples/writing-receive-adapter-source/" ] } ],
+    "orchestrator": [ { "value": "Knative Eventing", "references": [ "https://knative.dev/docs/eventing/" ], "comment": "Only limited orchestration capabilities (sequence & parallel execution)" } ],
+    "workflowDefType": [ { "value": "custom DSL", "references": [ "https://knative.dev/docs/eventing/parallel", "https://knative.dev/docs/eventing/sequence" ] } ],
+    "workflowDefLang": [],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://knative.dev/docs/eventing/flows/sequence", "https://knative.dev/docs/eventing/flows/parallel" ] } ],
+    "orchExecTimeQuotas": [ { "value": false, "references": [] } ],
+    "orchIOQuotas": [ { "value": false, "references": [] } ],
+    "testingFunc": [],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "log-based debugging", "references": [ "https://knative.dev/docs/serving/debugging-application-issues/" ], "comment": "Using Kubernetes" } ],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "Fluentbit", "references": [ "https://knative.dev/docs/install/collecting-logs" ] }
+    ],
+    "monitoring": [],
+    "obsIntegration": [ { "value": "push-based", "references": [ "https://knative.dev/docs/install/collecting-logs/#setting-up-the-forwarders" ] } ],
+    "depAutomation": [ { "value": "Kubernetes", "references": [ "https://knative.dev/docs/serving/getting-started-knative-app/" ] } ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://knative.dev/docs/serving/samples/" ] } ],
+    "auth": [],
+    "accessControl": []
+  }
+}

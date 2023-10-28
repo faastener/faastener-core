@@ -1,6 +1,10 @@
 package org.faastener.core.services;
 
+import java.util.HashMap;
+
 import org.faastener.core.repositories.TechnologyDossierRepository;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,8 +23,8 @@ class TechnologyServiceTest {
     private TechnologyDossierRepository repository;
 
     /*@Test
-    @DisplayName("Test findById - Success")
-    void testFindByIdSuccess() {
+    @DisplayName("Test findTechnologyById - Success")
+    void testFindTechnologyByIdSuccess() {
         Map<String, List<TechnologyReviewEntry<?>>> mockReview = new HashMap<>();
         List<TechnologyReviewEntry<?>> mockReviewEntries = new ArrayList<>();
         mockReviewEntries.add(new TechnologyReviewEntry<>(null, "comment", "entry_value"));

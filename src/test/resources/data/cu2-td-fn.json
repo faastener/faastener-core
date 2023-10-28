@@ -1,0 +1,105 @@
+{
+  "id": "fn-project-dossier",
+  "technologyId": "fn-project",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/fnproject/docs/blob/master/LICENSE" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://fnproject.io/tutorials/install" ] } ],
+    "installTargets": [
+      { "value": "Docker", "references": [ "https://fnproject.io/tutorials/install/" ] },
+      { "value": "Linux", "references": [ "https://fnproject.io/tutorials/install/" ] },
+      { "value": "Unix", "references": [ "https://fnproject.io/tutorials/install/" ] },
+      { "value": "MacOS", "references": [ "https://fnproject.io/tutorials/install/" ] },
+      { "value": "Windows", "references": [ "https://fnproject.io/tutorials/install/" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/fnproject/fn" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/fnproject/fn" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/fnproject/fn/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://github.com/fnproject/cli" ] },
+      { "value": "API", "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/README.md#advanced" ] },
+      { "value": "GUI", "references": [ "https://github.com/fnproject/ui" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] },
+      { "value": "retrieve", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] },
+      { "value": "update", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] },
+      { "value": "delete", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://fnproject.io/tutorials/install" ] },
+      { "value": "configuration", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] },
+      { "value": "enactment", "references": [ "https://github.com/fnproject/docs/blob/master/cli/README.md" ] },
+      { "value": "termination", "references": [ "https://github.com/fnproject/docs/blob/master/cli/ref/fn-stop.md" ] }
+    ],
+    "githubStars": [ { "value": 4900, "references": [ "https://github.com/fnproject/fn/stargazers" ] } ],
+    "githubForks": [ { "value": 363, "references": [ "https://github.com/fnproject/fn/network/members" ] } ],
+    "githubIssues": [ { "value": 128, "references": [ "https://github.com/fnproject/fn/issues" ] } ],
+    "githubCommits": [ { "value": 3393, "references": [ "https://github.com/fnproject/fn/commits/master" ] } ],
+    "githubContributors": [ { "value": 86, "references": [ "https://github.com/fnproject/fn/graphs/contributors" ] } ],
+    "soQuestions": [ { "value": 30, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=fn" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://github.com/fnproject/docs#getting-started" ] },
+      { "value": "development", "references": [ "https://github.com/fnproject/docs#for-contributors" ] },
+      { "value": "deployment", "references": [ "https://fnproject.io/tutorials/install/" ] },
+      { "value": "architecture", "references": [ "https://github.com/fnproject/docs/blob/master/fn/general/introduction.md#the-fn-architecture" ] }
+    ],
+    "docFunctions": [
+      { "value": "development", "references": [ "https://github.com/fnproject/docs/blob/master/fn/general/introduction.md#functions-with-fn" ] },
+      { "value": "deployment", "references": [ "https://github.com/fnproject/docs/blob/master/fn/general/introduction.md#functions-with-fn" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Go", "references": [ "https://fnproject.io/tutorials/Introduction/" ] },
+      { "value": "Java", "references": [ "https://fnproject.io/tutorials/JavaFDKIntroduction/" ] },
+      { "value": "Node.js", "references": [ "https://fnproject.io/tutorials/node/intro/" ] },
+      { "value": "C#", "references": [ "https://fnproject.io/tutorials/csharp/intro/" ] },
+      { "value": "Python", "references": [ "https://fnproject.io/tutorials/python/intro/" ] },
+      { "value": "Ruby", "references": [ "https://fnproject.io/tutorials/ruby/intro/" ] },
+      { "value": "Docker", "references": [ "https://fnproject.io/tutorials/ContainerAsFunction/" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/fdks.md#bring-your-own-container" ] } ],
+    "ide": [],
+    "clientLibs": [ { "value": "Go", "references": [ "https://github.com/fnproject/fn_go" ] } ],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "dedicated mechanisms", "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/func-file.md" ], "comment": "Version property is appended as a tag to the function image" } ],
+    "appVersioning": [ { "value": "implicit", "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/apps.md#applications" ], "comment": "" } ],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/triggers.md"] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/triggers.md" ] } ],
+    "endpointTLS": [ { "value": false, "references": [] } ],
+    "datastoreBlob": [],
+    "datastoreDB": [],
+    "scheduler": [ { "value": false, "references": [] } ],
+    "messaging": [],
+    "streaming": [],
+    "specService": [],
+    "eventSourceIntegration": [],
+    "orchestrator": [ { "value": "FnFlows", "references": [ "https://github.com/fnproject/fdk-java/blob/master/docs/FnFlowsUserGuide.md" ] } ],
+    "workflowDefType": [ { "value": "orchestrating function", "references": [ "https://github.com/fnproject/flow#writing-flow-functions" ] } ],
+    "workflowDefLang": [{ "value": "Java", "references": [ "https://github.com/fnproject/fdk-java/blob/master/docs/FnFlowsUserGuide.md" ] } ],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://github.com/fnproject/flow/blob/master/docs/API.md#completion-stage-types" ] } ],
+    "orchExecTimeQuotas": [ { "value": false, "references": [] } ],
+    "orchIOQuotas": [ { "value": false, "references": [] } ],
+    "testingFunc": [ { "value": "unit testing", "references": [ "https://github.com/fnproject/docs/blob/master/fdks/fdk-java/TestingFunctions.md" ], "comment": "For Java only" } ],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "log-based debugging", "references": [ "https://fnproject.io/tutorials/Troubleshooting/" ], "comment": "Using Fn CLI" } ],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "Docker container logs", "references": [ "https://github.com/fnproject/docs/blob/master/fn/operate/logging.md" ] }
+    ],
+    "monitoring": [
+      { "value": "Jaeger", "references": [ "https://github.com/fnproject/docs/blob/master/fn/operate/metrics.md" ] },
+      { "value": "Prometheus", "references": [ "https://github.com/fnproject/docs/blob/master/fn/operate/metrics.md" ] },
+      { "value": "Zipkin", "references": [ "https://github.com/fnproject/docs/blob/master/fn/operate/metrics.md" ] }
+    ],
+    "obsIntegration": [ { "value": "push-based", "references": [ "https://github.com/fnproject/tutorials/blob/master/Troubleshooting/README.md#log-capture-to-a-logging-service" ] } ],
+    "depAutomation": [ { "value": "Fn CLI", "references": [ "https://github.com/fnproject/docs/blob/master/fn/develop/packaging.md#option-1-recommended-use-the-fn-cli-tool" ] } ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://github.com/fnproject/tutorials" ] } ],
+    "auth": [],
+    "accessControl": []
+  }
+}

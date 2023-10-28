@@ -1,0 +1,138 @@
+{
+  "id": "azure-functions-dossier",
+  "technologyId": "azure-functions",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "SLA for Azure Functions", "references": [ "https://azure.microsoft.com/en-gb/support/legal/sla/functions/v1_1/" ] } ],
+    "licenseType": [ { "value": "proprietary" } ],
+    "installType": [
+      { "value": "installable", "references": [ "https://github.com/Azure/Azure-Functions/#github-repositories", "https://docs.microsoft.com/azure/azure-functions/functions-run-local"] },
+      { "value": "as-a-service", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-scale" ] }
+    ],
+    "installTargets": [
+      { "value": "Linux", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-run-local" ] },
+      { "value": "Kubernetes", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-run-local" ] },
+      { "value": "MacOS", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-run-local" ] },
+      { "value": "Windows", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-run-local" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/Azure/Azure-Functions/#github-repositories" ], "comment": "Partially open sourced" } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/Azure/azure-functions-host" ] } ],
+    "developedIn": [ { "value": "C#", "references": [ "https://github.com/Azure/azure-functions-host/search?l=c%23" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli" ] },
+      { "value": "API", "references": [ "https://docs.microsoft.com/rest/api/azure" ] },
+      { "value": "GUI", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli" ] },
+      { "value": "retrieve", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli" ] },
+      { "value": "update", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli" ] },
+      { "value": "delete", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function-azure-cli" ] }
+    ],
+    "interfaceAdmin": [],
+    "githubStars": [ { "value": 1300, "references": [ "https://github.com/Azure/azure-functions-host/stargazers" ] } ],
+    "githubForks": [ { "value": 279, "references": [ "https://github.com/Azure/azure-functions-host/network/members" ] } ],
+    "githubIssues": [ { "value": 948, "references": [ "https://github.com/Azure/azure-functions-host/issues" ] } ],
+    "githubCommits": [ { "value": 2339, "references": [ "https://github.com/Azure/azure-functions-host" ] } ],
+    "githubContributors": [ { "value": 60, "references": [ "https://github.com/Azure/azure-functions-host" ] } ],
+    "soQuestions": [ { "value": 7200, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=azure-functions" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://docs.microsoft.com/en-us/cli/azure/functionapp" ] },
+      { "value": "deployment", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-run-local" ] }
+    ],
+    "docFunctions": [
+      { "value": "development", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-reference" ] },
+      { "value": "deployment", "references": [ "https://docs.microsoft.com/cli/azure/functionapp/deployment" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Docker", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-image" ] },
+      { "value": "C#", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-csharp" ] },
+      { "value": "JavaScript", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2#node-version" ] },
+      { "value": "F#", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-fsharp" ] },
+      { "value": "Java", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-java?tabs=bash%2Cconsumption" ] },
+      { "value": "Powershell", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-powershell?tabs=portal" ] },
+      { "value": "Python", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python#python-version" ] },
+      { "value": "TypeScript", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-node?tabs=v2#typescript" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-image", "https://github.com/Azure/azure-functions-host/wiki/Language-Extensibility" ] } ],
+    "ide": [
+      { "value": "Visual Studio", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-develop-local" ] },
+      { "value": "Visual Studio Code", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-develop-local" ] }
+    ],
+    "clientLibs": [
+      { "value": "Java", "references": [ "https://docs.microsoft.com/en-us/java/api/overview/azure/readme?view=azure-java-stable" ] },
+      { "value": ".NET", "references": [ "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/functions?view=azure-dotnet" ] },
+      { "value": "Python", "references": [ "https://docs.microsoft.com/en-us/python/api/overview/azure/functions?view=azure-python" ] }
+    ],
+    "pkgSizeQuotas": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-scale" ] } ],
+    "execTimeQuotas": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-scale" ], "comment": "Execution time can be set to be unlimited" } ],
+    "versioning": [ { "value": "implicit", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-reference" ] } ],
+    "appVersioning": [ { "value": "implicit", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-reference" ] } ],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook" ] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#customize-the-http-endpoint" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth" ] } ],
+    "datastoreBlob": [ { "value": "Azure Blob Storage", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-storage-blob-triggered-function" ] } ],
+    "datastoreDB": [
+      { "value": "Azure Cosmos DB", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-cosmos-db-triggered-function" ] },
+      { "value": "Azure Tables", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-table" ] }
+    ],
+    "scheduler": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function" ] } ],
+    "messaging": [
+      { "value": "Azure Queue Storage", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-create-storage-queue-triggered-function" ] },
+      { "value": "Azure Service Bus", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus" ] },
+      { "value": "RabbitMQ", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-rabbitmq" ] }
+    ],
+    "streaming": [
+      { "value": "Azure Event Hubs", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hubs" ] },
+      { "value": "Apache Kafka", "references": [ "https://github.com/azure/azure-functions-kafka-extension" ] }
+    ],
+    "specService": [
+      { "value": "Azure Event Grid", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid" ] },
+      { "value": "Azure IoT Hub", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-iot" ] },
+      { "value": "Azure Mobile Apps", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-mobile-apps" ], "comment": "Only available to Azure Functions 1.x" },
+      { "value": "Azure Notification Hubs", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-notification-hubs" ] },
+      { "value": "Azure SignalR Service", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-signalr-service" ] },
+      { "value": "SendGrid", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid?tabs=csharp" ] },
+      { "value": "Twilio", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-twilio?tabs=csharp" ] }
+    ],
+    "eventSourceIntegration": [ { "value": "custom I/O bindings", "references": [ "https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings" ] } ],
+    "orchestrator": [ { "value": "Azure Durable Functions", "references": [ "https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-orchestrations" ] } ],
+    "workflowDefType": [ { "value": "orchestrating function", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-types-features-overview#orchestrator-functions" ] } ],
+    "workflowDefLang": [
+      { "value": "C#", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-create-first-csharp?pivots=code-editor-vscode" ] },
+      { "value": "JavaScript", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-js-vscode" ] },
+      { "value": "Python", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-python-vscode" ] },
+      { "value": "Powershell", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/durable/quickstart-powershell-vscode" ] }
+    ],
+    "controlFlowDocs": [ { "value": true, "references": [ "https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-code-constraints" ] } ],
+    "orchExecTimeQuotas": [ { "value": false, "references": [] } ],
+    "orchIOQuotas": [ { "value": false, "references": [] } ],
+    "testingFunc": [ { "value": "via external tools", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-test-a-function" ], "comment": "Only guidelines are provided" } ],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "step-through debugging", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-debug-powershell-local" ], "comment": "Using dedicated functions development framework" } ],
+    "debuggingRemote": [],
+    "logging": [ { "value": "Azure Application Insights", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-monitoring" ] } ],
+    "monitoring": [ { "value": "Azure Application Insights", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-monitoring" ] } ],
+    "obsIntegration": [],
+    "depAutomation": [ { "value": "Azure Resource Manager", "references": [ "https://docs.microsoft.com/azure/azure-functions/functions-how-to-azure-devops" ] } ],
+    "cicd": [
+      { "value": "Azure Pipelines", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-azure-devops?tabs=csharp" ] },
+      { "value": "Azure App Service", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment" ] },
+      { "value": "Jenkins", "references": [ "https://docs.microsoft.com/en-us/azure/developer/jenkins/deploy-to-azure-functions?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fazure-functions%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json" ] }
+    ],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://github.com/Azure/Azure-Functions/wiki/Samples-and-content" ] } ],
+    "auth": [
+      { "value": "Azure Active Directory", "references": [ "https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad" ] },
+      { "value": "Facebook", "references": [ "https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook" ] },
+      { "value": "Google", "references": [ "https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google" ] },
+      { "value": "Microsoft account", "references": [ "https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft" ] },
+      { "value": "Twitter", "references": [ "https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter" ] }
+    ],
+    "accessControl": [
+      { "value": "resources", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts" ] },
+      { "value": "functions", "references": [ "https://docs.microsoft.com/en-us/azure/azure-functions/security-concepts" ] }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "google-cloud-functions-dossier",
+  "technologyId": "google-cloud-functions",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Google Cloud Platform Terms", "references": [ "https://cloud.google.com/terms" ] } ],
+    "licenseType": [ { "value": "proprietary" } ],
+    "installType": [ { "value": "as-a-service", "references": [ "https://cloud.google.com/functions/docs/concepts/overview" ] } ],
+    "installTargets": [],
+    "code": [ { "value": "closed source", "references": [] } ],
+    "codeLoc": [],
+    "developedIn": [],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://cloud.google.com/sdk/gcloud/reference/functions/" ] },
+      { "value": "API", "references": [ "https://cloud.google.com/functions/docs/apis" ] },
+      { "value": "GUI", "references": [ "https://console.cloud.google.com/functions" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://cloud.google.com/functions/docs/reference/rest" ] },
+      { "value": "retrieve", "references": [ "https://cloud.google.com/functions/docs/reference/rest" ] },
+      { "value": "update", "references": [ "https://cloud.google.com/functions/docs/reference/rest" ] },
+      { "value": "delete", "references": [ "https://cloud.google.com/functions/docs/reference/rest" ] }
+    ],
+    "interfaceAdmin": [],
+    "githubStars": [],
+    "githubForks": [],
+    "githubIssues": [],
+    "githubCommits": [],
+    "githubContributors": [],
+    "soQuestions": [ { "value": 12386, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=google-cloud-functions" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://cloud.google.com/functions/docs/" ] }
+    ],
+    "docFunctions": [
+      { "value": "development", "references": [ "https://cloud.google.com/functions/docs/" ] },
+      { "value": "deployment", "references": [ "https://cloud.google.com/functions/docs/" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Go", "references": [ "https://cloud.google.com/functions/docs/concepts/go-runtime" ] },
+      { "value": "Java", "references": [ "https://cloud.google.com/functions/docs/concepts/java-runtime" ] },
+      { "value": "Node.js", "references": [ "https://cloud.google.com/functions/docs/concepts/nodejs-10-runtime" ] },
+      { "value": "Python", "references": [ "https://cloud.google.com/functions/docs/concepts/python-runtime" ] }
+    ],
+    "runtimeCustomization": [ { "value": false, "references": [] } ],
+    "ide": [],
+    "clientLibs": [
+      { "value": "Go", "references": [ "https://godoc.org/google.golang.org/api/cloudfunctions" ] },
+      { "value": "Java", "references": [ "https://github.com/googleapis/google-api-java-client-services#supported-google-apis" ] },
+      { "value": "Node.js", "references": [ "https://github.com/googleapis/google-api-nodejs-client" ] },
+      { "value": "Python", "references": [ "https://github.com/googleapis/google-api-python-client/blob/master/docs/dyn/index.md#cloudfunctions" ] },
+      { "value": "C#", "references": [ "https://developers.google.com/api-client-library/dotnet/apis/cloudfunctions/v1" ] },
+      { "value": "Ruby", "references": [ "https://googleapis.dev/ruby/google-api-client/latest/Google/Apis/CloudfunctionsV1.html" ] },
+      { "value": "Dart", "references": [ "https://pub.dev/packages/googleapis#available-google-apis" ] }
+    ],
+    "pkgSizeQuotas": [ { "value": true, "references": [ "https://cloud.google.com/functions/quotas" ] } ],
+    "execTimeQuotas": [ { "value": true, "references": [ "https://cloud.google.com/functions/docs/concepts/exec#timeout" ] } ],
+    "versioning": [ { "value": "implicit", "references": [ "https://cloud.google.com/functions/docs/reference/rest/v1/projects.locations.functions#CloudFunction" ], "comment": "versionId is used only as output" } ],
+    "appVersioning": [ { "value": "implicit", "references": [ "https://cloud.google.com/sdk/gcloud/reference/projects" ], "comment": "In GCP resources are grouped by projects, but no details on explicit project versioning" } ],
+    "endpointSyncCall": [
+      { "value": "HTTP", "references": [ "https://cloud.google.com/functions/docs/calling/direct", "https://cloud.google.com/functions/docs/calling/http" ] },
+      { "value": "RPC", "references": [ "https://cloud.google.com/functions/docs/reference/rpc/google.cloud.functions.v1#google.cloud.functions.v1.CloudFunctionsService"], "comment": "for testing" }
+    ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://cloud.google.com/endpoints/docs/openapi/get-started-cloud-functions#endpoints_configure" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://cloud.google.com/endpoints/docs/openapi/enabling-ssl" ] } ],
+    "datastoreBlob": [ { "value": "Google Cloud Storage", "references": [ "https://cloud.google.com/functions/docs/calling/storage" ] } ],
+    "datastoreDB": [
+      { "value": "Cloud Firestore", "references": [ "https://cloud.google.com/functions/docs/calling/cloud-firestore" ] },
+      { "value": "Firebase Realtime Database", "references": [ "https://cloud.google.com/functions/docs/calling/realtime-database" ] }
+    ],
+    "scheduler": [ { "value": true, "references": [ "https://cloud.google.com/scheduler/docs/tut-pub-sub" ] } ],
+    "messaging": [ { "value": "Google Cloud Pub/Sub", "references": [ "https://cloud.google.com/functions/docs/calling/pubsub" ] } ],
+    "streaming": [ { "value": "Google Cloud Pub/Sub", "references": [ "https://cloud.google.com/functions/docs/calling/pubsub" ] } ],
+    "specService": [
+      { "value": "Google Analytics for Firebase", "references": [ "https://cloud.google.com/functions/docs/calling/google-analytics-firebase" ] },
+      { "value": "Firebase Authentication", "references": [ "https://cloud.google.com/functions/docs/calling/firebase-auth" ] },
+      { "value": "Firebase Remote Config", "references": [ "https://cloud.google.com/functions/docs/calling/firebase-remote-config" ] },
+      { "value": "Cloud Logging", "references": [ "https://cloud.google.com/functions/docs/calling#cloud_logging" ] },
+      { "value": "Gmail", "references": [ "https://cloud.google.com/functions/docs/calling#gmail" ] }
+    ],
+    "eventSourceIntegration": [
+      { "value": "webhooks", "references": [ "https://cloud.google.com/functions/docs/calling" ] },
+      { "value": "messaging-based", "references": [ "https://cloud.google.com/functions/docs/calling/logging" ] }
+    ],
+    "orchestrator": [],
+    "workflowDefType": [],
+    "workflowDefLang": [],
+    "controlFlowDocs": [],
+    "orchExecTimeQuotas": [],
+    "orchIOQuotas": [],
+    "testingFunc": [ { "value": "via external tools", "references": [ "https://cloud.google.com/functions/docs/bestpractices/testing" ], "comment": "guidelines only" } ],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "step-through debugging", "references": [ "https://cloud.google.com/functions/docs/functions-framework" ], "comment": "Using dedicated functions development framework" } ],
+    "debuggingRemote": [],
+    "logging": [
+      { "value": "Google Cloud Operations", "references": [ "https://cloud.google.com/functions/docs/monitoring/logging" ] }
+    ],
+    "monitoring": [
+      { "value": "Google Cloud Operations", "references": [ "https://cloud.google.com/functions/docs/monitoring/metrics" ] }
+    ],
+    "obsIntegration": [],
+    "depAutomation": [ { "value": "Google Cloud Deployment Manager", "references": [ "https://cloud.google.com/deployment-manager/docs/configuration/supported-gcp-types" ] } ],
+    "cicd": [ { "value": "CloudBuild", "references": [ "https://cloud.google.com/functions/docs/testing/test-cicd" ] } ],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://cloud.google.com/functions/docs/writing" ] } ],
+    "auth": [ { "value": "Cloud IAM", "references": [ "https://cloud.google.com/functions/docs/securing/authenticating" ] } ],
+    "accessControl": [
+      { "value": "resources", "references": [ "https://cloud.google.com/functions/docs/securing/managing-access-iam" ] },
+      { "value": "functions", "references": [ "https://cloud.google.com/functions/docs/securing/function-identity" ] }
+    ]
+  }
+}

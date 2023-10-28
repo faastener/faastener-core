@@ -1,0 +1,104 @@
+{
+  "id": "kubeless-dossier",
+  "technologyId": "kubeless",
+  "reviewDate": "2021-02-12",
+  "reviewedCriteria": {
+    "license": [ { "value": "Apache 2.0", "references": [ "https://github.com/kubeless/kubeless" ] } ],
+    "licenseType": [ { "value": "permissive" } ],
+    "installType": [ { "value": "installable", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] } ],
+    "installTargets": [
+      { "value": "Kubernetes", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "Linux", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "Unix", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "MacOS", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "Windows", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] }
+    ],
+    "code": [ { "value": "open source", "references": [ "https://github.com/kubeless/kubeless" ] } ],
+    "codeLoc": [ { "value": "GitHub", "references": [ "https://github.com/kubeless/kubeless" ] } ],
+    "developedIn": [ { "value": "Go", "references": [ "https://github.com/kubeless/kubeless/search?l=go" ] } ],
+    "interfaces": [
+      { "value": "CLI", "references": [ "https://github.com/kubeless/kubeless/blob/master/docs/architecture.md#kubeless-command-line-client" ] }
+    ],
+    "interfaceAppMgmt": [
+      { "value": "create", "references": [ "https://github.com/kubeless/kubeless/tree/master/cmd/kubeless" ] },
+      { "value": "retrieve", "references": [ "https://github.com/kubeless/kubeless/tree/master/cmd/kubeless" ] },
+      { "value": "update", "references": [ "https://github.com/kubeless/kubeless/tree/master/cmd/kubeless" ] },
+      { "value": "delete", "references": [ "https://github.com/kubeless/kubeless/tree/master/cmd/kubeless" ] }
+    ],
+    "interfaceAdmin": [
+      { "value": "deployment", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "configuration", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] },
+      { "value": "enactment", "references": [ "https://kubeless.io/docs/quick-start/#installation" ] }
+    ],
+    "githubStars": [ { "value": 6400, "references": [ "https://github.com/kubeless/kubeless/stargazers" ] } ],
+    "githubForks": [ { "value": 678, "references": [ "https://github.com/kubeless/kubeless/network/members" ] } ],
+    "githubIssues": [ { "value": 183, "references": [ "https://github.com/kubeless/kubeless/issues" ] } ],
+    "githubCommits": [ { "value": 1038, "references": [ "https://github.com/kubeless/kubeless/commits/master" ] } ],
+    "githubContributors": [ { "value": 102, "references": [ "https://github.com/kubeless/kubeless/graphs/contributors" ] } ],
+    "soQuestions": [ { "value": 12, "references": [ "https://api.stackexchange.com/2.2/questions?&filter=total&site=stackoverflow&tagged=kubeless" ] } ],
+    "docs": [
+      { "value": "usage", "references": [ "https://kubeless.io/docs/quick-start" ] },
+      { "value": "development", "references": [ "https://kubeless.io/docs/dev-guide/" ] },
+      { "value": "deployment", "references": [ "https://kubeless.io/docs/quick-start" ] },
+      { "value": "architecture", "references": [ "https://kubeless.io/docs/architecture/" ] }
+    ],
+    "docFunctions": [
+      { "value": "development", "references": [ "https://kubeless.io/docs/building-functions/" ] },
+      { "value": "deployment", "references": [ "https://kubeless.io/docs/advanced-function-deployment/" ] }
+    ],
+    "funcRuntimes": [
+      { "value": "Ballerina", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "C#", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Docker Image", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Go", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Java", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Node.js", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Python", "references": [ "https://kubeless.io/docs/runtimes" ] },
+      { "value": "Ruby", "references": [ "https://kubeless.io/docs/runtimes" ] }
+    ],
+    "runtimeCustomization": [ { "value": true, "references": [ "https://github.com/kubeless/runtimes" ] } ],
+    "ide": [ { "value": "Visual Studio Code", "references": [ "https://github.com/kubeless/vscode-kubeless" ] } ],
+    "clientLibs": [],
+    "pkgSizeQuotas": [ { "value": false, "references": [] } ],
+    "execTimeQuotas": [ { "value": false, "references": [] } ],
+    "versioning": [ { "value": "implicit", "references": [ "https://kubeless.io/docs/building-functions/" ], "comment": "Using function tagging" } ],
+    "appVersioning": [],
+    "endpointSyncCall": [ { "value": "HTTP", "references": [ "https://kubeless.io/docs/http-triggers"] } ],
+    "endpointAsyncCall": [],
+    "endpointCustomization": [ { "value": true, "references": [ "https://kubeless.io/docs/http-triggers/" ] } ],
+    "endpointTLS": [ { "value": true, "references": [ "https://kubeless.io/docs/http-triggers/" ] } ],
+    "datastoreBlob": [],
+    "datastoreDB": [],
+    "scheduler": [ { "value": true, "references": [ "https://github.com/kubeless/kubeless/blob/master/docs/kubeless-functions.md#scheduled-functions" ] } ],
+    "messaging": [],
+    "streaming": [
+      { "value": "AWS Kinesis", "references": [ "https://kubeless.io/docs/streaming-functions/" ] },
+      { "value": "NATS", "references": [ "https://github.com/kubeless/nats-trigger" ] },
+      { "value": "Apache Kafka", "references": [ "https://github.com/kubeless/kafka-trigger" ] }
+    ],
+    "specService": [],
+    "eventSourceIntegration": [ { "value": "plugin-based", "references": [ "https://kubeless.io/docs/implementing-new-trigger/" ] } ],
+    "orchestrator": [],
+    "workflowDefType": [],
+    "workflowDefLang": [],
+    "controlFlowDocs": [],
+    "orchExecTimeQuotas": [],
+    "orchIOQuotas": [],
+    "testingFunc": [],
+    "testingNonFunc": [],
+    "debuggingLocal": [ { "value": "log-based debugging", "references": [ "https://kubeless.io/docs/debug-functions" ], "comment": "Using Kubernetes" } ],
+    "debuggingRemote": [],
+    "logging": [],
+    "monitoring": [ { "value": "Prometheus + Grafana", "references": [ "https://kubeless.io/docs/monitoring/" ] } ],
+    "obsIntegration": [],
+    "depAutomation": [
+      { "value": "Kubernetes", "references": [ "https://kubeless.io/docs/advanced-function-deployment" ] },
+      { "value": "Serverless Framework", "references": [ "https://kubeless.io" ] }
+    ],
+    "cicd": [],
+    "funcMarketplaces": [],
+    "funcSampleRepos": [ { "value": true, "references": [ "https://github.com/kubeless/kubeless/tree/master/examples" ] } ],
+    "auth": [ { "value": "Via Kubernetes", "references": [ "https://kubeless.io/docs/http-triggers" ] } ],
+    "accessControl": [ { "value": "Via Kubernetes", "references": [ "https://kubeless.io/docs/kubeless-functions" ] } ]
+  }
+}
