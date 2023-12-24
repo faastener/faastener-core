@@ -1,0 +1,255 @@
+[
+  {
+    "id": "faas-filter",
+    "technologyType": "FAAS",
+    "name": "Main filter",
+    "filters": [
+      {
+        "criterionTypeId": "license",
+        "displayName": "License",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "licenseType",
+        "displayName": "License Type",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "installType",
+        "displayName": "Installation",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "installTargets",
+        "displayName": "Installation Targets",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "code",
+        "displayName": "Source Code Availability",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "codeLoc",
+        "displayName": "Source Code Repository",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "developedIn",
+        "displayName": "Main Programming Language",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "githubStars",
+        "displayName": "GitHub Stars",
+        "filterType": "lte"
+      },
+      {
+        "criterionTypeId": "githubForks",
+        "displayName": "GitHub Forks",
+        "filterType": "lte"
+      },
+      {
+        "criterionTypeId": "githubIssues",
+        "displayName": "GitHub Issues",
+        "filterType": "lte"
+      },
+      {
+        "criterionTypeId": "githubCommits",
+        "displayName": "GitHub Commits",
+        "filterType": "lte"
+      },
+      {
+        "criterionTypeId": "githubContributors",
+        "displayName": "GitHub Contributors",
+        "filterType": "lte"
+      },
+      {
+        "criterionTypeId": "funcRuntimes",
+        "displayName": "Function Runtimes",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "runtimeCustomization",
+        "displayName": "Function Runtime Customization",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "ide",
+        "displayName": "Supported IDEs",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "clientLibs",
+        "displayName": "Client Libraries",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "pkgSizeQuotas",
+        "displayName": "Deployment Package Size Quota",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "execTimeQuotas",
+        "displayName": "Execution Time Quota",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "funcVersioning",
+        "displayName": "Function Versioning",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "appVersioning",
+        "displayName": "Application Versioning",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "endpointSyncCall",
+        "displayName": "Synchronous Calls",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "endpointAsyncCall",
+        "displayName": "Asynchronous Calls",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "endpointCustomization",
+        "displayName": "Endpoint Customization",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "endpointTLS",
+        "displayName": "TLS Support",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "datastoreBlob",
+        "displayName": "File-level Datastores",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "datastoreDB",
+        "displayName": "Database Mode Datastores",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "scheduler",
+        "displayName": "Scheduled Function Calls",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "messaging",
+        "displayName": "Message Queues",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "streaming",
+        "displayName": "Stream Processing Platforms",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "specService",
+        "displayName": "Special-purpose Services",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "eventSourceIntegration",
+        "displayName": "Event Sources Integration",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "orchestrator",
+        "displayName": "Native Function Orchestrators",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "workflowDefType",
+        "displayName": "Workflow Definition Type",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "workflowDefLang",
+        "displayName": "Workflow Definition Language",
+        "filterType": "containsOne"
+      },
+      {
+        "criterionTypeId": "orchExecTimeQuotas",
+        "displayName": "Workflow Execution Time Quota",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "orchIOQuotas",
+        "displayName": "Workflow I/O Size Quota",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "testingFunc",
+        "displayName": "Functional Testing",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "testingNonFunc",
+        "displayName": "Non-functional Testing",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "debuggingLocal",
+        "displayName": "Local Debugging",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "debuggingRemote",
+        "displayName": "Remote Debugging",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "logging",
+        "displayName": "Logging",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "monitoring",
+        "displayName": "Monitoring",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "obsIntegration",
+        "displayName": "Logging/Monitoring Integration",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "depAutomation",
+        "displayName": "Deployment Automation",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "cicd",
+        "displayName": "CI/CD",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "funcMarketplaces",
+        "displayName": "Function Marketplaces",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "funcSampleRepos",
+        "displayName": "Code Sample Repositories",
+        "filterType": "bool"
+      },
+      {
+        "criterionTypeId": "auth",
+        "displayName": "Authentication",
+        "filterType": "containsAny"
+      },
+      {
+        "criterionTypeId": "accessControl",
+        "displayName": "Access Control",
+        "filterType": "containsAny"
+      }
+    ]
+  }
+]
+

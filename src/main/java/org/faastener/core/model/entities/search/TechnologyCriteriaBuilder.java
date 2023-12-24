@@ -86,7 +86,11 @@ public class TechnologyCriteriaBuilder {
             }*/
 
             case IN:
-                return Criteria.where(keyName).in(arguments);
+                if (arguments != null && arguments.size() == 1 && "*".equals(arguments.get(0))) {
+                    return Criteria.where(PREFIX + property).not().size(0);
+                } else {
+                    return Criteria.where(keyName).in(arguments);
+                }
             case NOT_IN:
                 return Criteria.where(keyName).nin(arguments);
         }

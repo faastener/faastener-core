@@ -1,7 +1,5 @@
 package org.faastener.core.model.domain.factsources.tosca;
 
-import java.util.Map;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TNodeTemplate {
-    public String id;
-    public String type;
-    public String name;
-    public Map<String, String> properties;
+public class Capability {
+    private String id;
+    private String name;
+    private String type;
 }

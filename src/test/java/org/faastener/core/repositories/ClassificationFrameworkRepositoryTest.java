@@ -39,10 +39,8 @@ class ClassificationFrameworkRepositoryTest {
         ClassificationFrameworkEntity framework1 = initTestFramework(2, 3, 3);
         ClassificationFrameworkEntity savedFramework1 = repository.save(framework1);
 
-        // Retrieve the review
         Optional<ClassificationFrameworkEntity> loadedFramework1 = repository.findById(savedFramework1.getId());
 
-        // Validations
         Assertions.assertTrue(loadedFramework1.isPresent());
 
         loadedFramework1.ifPresent(f1 -> {
@@ -61,12 +59,9 @@ class ClassificationFrameworkRepositoryTest {
         ClassificationFrameworkEntity framework2 = initTestFramework(1, 2, 4);
 
         List<ClassificationFrameworkEntity> savedFrameworks = repository.saveAll(List.of(framework1, framework2));
-
-        // Retrieve the review
         List<ClassificationFrameworkEntity> loadedFrameworks = repository.findAll();
 
-        // Validations
-        Assertions.assertEquals(2, loadedFrameworks.size());
+        Assertions.assertEquals(savedFrameworks.size(), loadedFrameworks.size());
     }
 
     @Test
